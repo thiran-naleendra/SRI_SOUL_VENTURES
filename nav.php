@@ -50,7 +50,7 @@
                      <nav id="navigation" class="navigation">
                         <ul>
                            <li class="">
-                              <a href="">Packages</a>
+                              <a href="packages.php">Packages</a>
                            </li>
                            <li class="">
                               <a href="">Destinations</a>
