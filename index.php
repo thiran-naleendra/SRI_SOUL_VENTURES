@@ -220,7 +220,7 @@
                             </div>
                         </div>
                         <div class="btn-wrap text-center">
-                            <a href="#" class="button-primary">VIEW ALL PACKAGES</a>
+                            <a href="packages.php" class="button-primary">VIEW ALL PACKAGES</a>
                         </div>
                     </div>
                 </div>
