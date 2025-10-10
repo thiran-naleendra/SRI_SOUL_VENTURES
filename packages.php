@@ -340,7 +340,7 @@
                            </figure>
                            <div class="package-price">
                               <h6>
-                                 <span>$6999 </span>
+                                 <span>$94 </span>
                               </h6>
                            </div>
                            <div class="package-content-wrap">
@@ -348,7 +348,7 @@
                                  <ul>
                                     <li>
                                        <i class="far fa-clock"></i>
-                                       6D/5N
+                                       Kumana Safari
                                     </li>
 
 
@@ -356,11 +356,11 @@
                               </div>
                               <div class="package-content">
                                  <h3>
-                                    Celestial Luxe
+                                    Kumana Safari
                                  </h3>
 
                                  <p>
-                                    Luxury that touches the stars</p>
+                                    Where feathers write stories in the sky</p>
                                  <div class="btn-wrap">
                                     <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
                                     <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
