@@ -39,6 +39,30 @@
       <?php include('nav.php'); ?>
       <!-- nav bar -->
 
+
+      <!-- popup msg -->
+         <div id="maintenancePopup" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+            background:rgba(0,0,0,0.6); z-index:999999; justify-content:center; align-items:center;">
+   <div style="background:#fff; padding:30px; border-radius:15px; max-width:400px; width:90%; text-align:center;
+               box-shadow:0 5px 15px rgba(0,0,0,0.3); animation:popIn 0.4s ease;">
+      <h3 style="color:#e74c3c; font-weight:700;">⚠️ Site Under Maintenance</h3>
+      <p style="color:#333; margin:15px 0;">
+         Please visit our 
+         <a href="https://www.instagram.com/srisoulventures" target="_blank" style="color:#0155AE; font-weight:bold; text-decoration:none;">
+            Instagram page
+         </a> 
+         for more updates.
+      </p>
+      <button id="closePopup" 
+              style="background:#0155AE; color:#fff; border:none; padding:10px 25px; border-radius:5px; cursor:pointer;">
+         OK
+      </button>
+   </div>
+</div>
+      <!-- popup msg -->
+
+
       <!-- page detail -->
       <main id="content" class="site-main">
          <!-- Inner Banner html start-->
@@ -559,4 +583,5 @@
          }
       })();
    </script>
+   
 </body>
