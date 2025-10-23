@@ -124,12 +124,12 @@
                                             <h3>
                                                 <a href="#"> 7 Days Explore MIrisssa</a>
                                             </h3>
-                                            <div class="review-area">
+                                            <!-- <div class="review-area">
                                                 <span class="review-text">(25 reviews)</span>
                                                 <div class="rating-start" title="Rated 5 out of 5">
                                                     <span style="width: 60%"></span>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <p>Where coastal calm meets soulful charm</p>
                                             <!-- <div class="btn-wrap">
                                                 <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
@@ -170,12 +170,12 @@
                                                 <a href="#"> 10 Days
                                                     Wonders & Waves</a>
                                             </h3>
-                                            <div class="review-area">
+                                            <!-- <div class="review-area">
                                                 <span class="review-text">(25 reviews)</span>
                                                 <div class="rating-start" title="Rated 5 out of 5">
                                                     <span style="width: 60%"></span>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <p>Ride the rhythm of
                                                 nature</p>
                                             <!-- <div class="btn-wrap">
@@ -217,12 +217,12 @@
                                                 <a href="#"> 5 Days
                                                     Casino & Shopping</a>
                                             </h3>
-                                            <div class="review-area">
+                                            <!-- <div class="review-area">
                                                 <span class="review-text">(25 reviews)</span>
                                                 <div class="rating-start" title="Rated 5 out of 5">
                                                     <span style="width: 60%"></span>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <p>Spin, shop, and sparkle
                                                 through the city</p>
                                             <!-- <div class="btn-wrap">
