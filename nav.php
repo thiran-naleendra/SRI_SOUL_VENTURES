@@ -53,7 +53,7 @@
                               <a href="packages.php">Packages</a>
                            </li>
                            <li class="">
-                              <a href="">Destinations</a>
+                              <a href="destination.php">Destinations</a>
                            </li>
                            <li class="">
                               <a href="">Travel Vibe</a>

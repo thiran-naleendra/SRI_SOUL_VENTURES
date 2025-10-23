@@ -14,7 +14,7 @@
                   </div> -->
                </aside>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-6 col-md-6">
                <aside class="widget widget_text">
                   <h3 class="widget-title">CONTACT INFORMATION</h3>
                   <div class="textwidget widget-text">
@@ -40,7 +40,7 @@
                   </div>
                </aside>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <!-- <div class="col-lg-3 col-md-6">
                <aside class="widget widget_recent_post">
                   <h3 class="widget-title">Latest Post</h3>
                   <ul>
@@ -72,7 +72,7 @@
                      </li>
                   </ul>
                </aside>
-            </div>
+            </div> -->
             <div class="col-lg-3 col-md-6">
                <aside class="widget widget_newslatter">
                   <h3 class="widget-title">SUBSCRIBE US</h3>

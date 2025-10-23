@@ -41,25 +41,25 @@
 
 
       <!-- popup msg -->
-         <div id="maintenancePopup" 
-     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+      <div id="maintenancePopup"
+         style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
             background:rgba(0,0,0,0.6); z-index:999999; justify-content:center; align-items:center;">
-   <div style="background:#fff; padding:30px; border-radius:15px; max-width:400px; width:90%; text-align:center;
+         <div style="background:#fff; padding:30px; border-radius:15px; max-width:400px; width:90%; text-align:center;
                box-shadow:0 5px 15px rgba(0,0,0,0.3); animation:popIn 0.4s ease;">
-      <h3 style="color:#e74c3c; font-weight:700;">⚠️ Site Under Maintenance</h3>
-      <p style="color:#333; margin:15px 0;">
-         Please visit our 
-         <a href="https://www.instagram.com/srisoulventures" target="_blank" style="color:#0155AE; font-weight:bold; text-decoration:none;">
-            Instagram page
-         </a> 
-         for more updates.
-      </p>
-      <button id="closePopup" 
-              style="background:#0155AE; color:#fff; border:none; padding:10px 25px; border-radius:5px; cursor:pointer;">
-         OK
-      </button>
-   </div>
-</div>
+            <h3 style="color:#e74c3c; font-weight:700;">⚠️ Site Under Maintenance</h3>
+            <p style="color:#333; margin:15px 0;">
+               Please visit our
+               <a href="https://www.instagram.com/srisoulventures" target="_blank" style="color:#0155AE; font-weight:bold; text-decoration:none;">
+                  Instagram page
+               </a>
+               for more updates.
+            </p>
+            <button id="closePopup"
+               style="background:#0155AE; color:#fff; border:none; padding:10px 25px; border-radius:5px; cursor:pointer;">
+               OK
+            </button>
+         </div>
+      </div>
       <!-- popup msg -->
 
 
@@ -87,7 +87,7 @@
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img5.jpg" alt="">
+                                 <img src="assets/packages/7 day explore mirissa.jpg" alt="">
                               </a>
                            </figure>
                            <div class="package-price">
@@ -128,7 +128,7 @@
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img5.jpg" alt="">
+                                 <img src="assets/packages/10 day wonders and waves.jpg" alt="">
                               </a>
                            </figure>
                            <div class="package-price">
@@ -166,7 +166,7 @@
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img5.jpg" alt="">
+                                 <img src="assets/packages/5 day casino and shopping.jpg" alt="">
                               </a>
                            </figure>
                            <div class="package-price">
@@ -204,7 +204,7 @@
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img5.jpg" alt="">
+                                 <img src="assets/packages/6 day celestial luxe.jpg" alt="">
                               </a>
                            </figure>
                            <div class="package-price">
@@ -245,7 +245,7 @@
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img5.jpg" alt="">
+                                 <img src="assets/packages/yala safari.jpg" alt="">
                               </a>
                            </figure>
                            <div class="package-price">
@@ -283,7 +283,7 @@
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img5.jpg" alt="">
+                                 <img src="assets/packages/udawalawa safari.jpg" alt="">
                               </a>
                            </figure>
                            <div class="package-price">
@@ -321,7 +321,7 @@
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img5.jpg" alt="">
+                                 <img src="assets/packages/bundala safari.jpg" alt="">
                               </a>
                            </figure>
                            <div class="package-price">
@@ -359,7 +359,7 @@
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img5.jpg" alt="">
+                                 <img src="assets/packages/kumana Safari.jpg" alt="">
                               </a>
                            </figure>
                            <div class="package-price">
@@ -385,6 +385,320 @@
 
                                  <p>
                                     Where feathers write stories in the sky</p>
+                                 <div class="btn-wrap">
+                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <h2 class="inner-title">Beyond The Surface</h2>
+                  <div class="row">
+                     <div class="col-lg-4 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="assets/packages/crocodile watching.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>$94 </span>
+                              </h6>
+                           </div>
+                           <div class="package-content-wrap">
+                              <div class="package-meta text-center">
+                                 <ul>
+
+
+                                    <li>
+                                       <i class="fas fa-map-marker-alt"></i>
+                                       Crocodile Watching
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="package-content">
+                                 <h3>
+                                    Crocodile Watching
+                                 </h3>
+
+                                 <p>
+                                    Where stillness hides the fierce</p>
+                                 <div class="btn-wrap">
+                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="assets/packages/snake farm.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>$33 </span>
+                              </h6>
+                           </div>
+                           <div class="package-content-wrap">
+                              <div class="package-meta text-center">
+                                 <ul>
+                                    <li>
+                                       <i class="far fa-clock"></i>
+                                       Snake Farm
+                                    </li>
+
+
+                                 </ul>
+                              </div>
+                              <div class="package-content">
+                                 <h3>
+                                    Snake Farm
+                                 </h3>
+
+                                 <p>
+                                    Where danger and beauty coil as one</p>
+                                 <div class="btn-wrap">
+                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="assets/packages/scuba diving.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>$95 </span>
+                              </h6>
+                           </div>
+                           <div class="package-content-wrap">
+                              <div class="package-meta text-center">
+                                 <ul>
+                                    <li>
+                                       <i class="far fa-clock"></i>
+                                       Scuba Diving
+                                    </li>
+
+
+                                 </ul>
+                              </div>
+                              <div class="package-content">
+                                 <h3>
+                                    Scuba Diving
+                                 </h3>
+
+                                 <p>
+                                    The ocean doesn’t speak. It shows</p>
+                                 <div class="btn-wrap">
+                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="assets/packages/whale watching.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>$94 </span>
+                              </h6>
+                           </div>
+                           <div class="package-content-wrap">
+                              <div class="package-meta text-center">
+                                 <ul>
+                                    <li>
+                                       <i class="far fa-clock"></i>
+                                       Whale Watching
+                                    </li>
+
+
+                                 </ul>
+                              </div>
+                              <div class="package-content">
+                                 <h3>
+                                    Whale Watching
+                                 </h3>
+
+                                 <p>
+                                    Where the horizon moves with life</p>
+                                 <div class="btn-wrap">
+                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <h2 class="inner-title">Unwrapped Ceylon Soulwalk</h2>
+                  <div class="row">
+                     <div class="col-lg-4 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="assets/packages/tea plantation.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>$15 </span>
+                              </h6>
+                           </div>
+                           <div class="package-content-wrap">
+                              <div class="package-meta text-center">
+                                 <ul>
+
+
+                                    <li>
+                                       <i class="fas fa-map-marker-alt"></i>
+                                       Tea Plantation
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="package-content">
+                                 <h3>
+                                    Tea Plantation
+                                 </h3>
+
+                                 <p>
+                                    From leaf to soul, sip the story of Ceylon</p>
+                                 <div class="btn-wrap">
+                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="assets/packages/gems and jewelary.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>$80 </span>
+                              </h6>
+                           </div>
+                           <div class="package-content-wrap">
+                              <div class="package-meta text-center">
+                                 <ul>
+                                    <li>
+                                       <i class="far fa-clock"></i>
+                                       Gems & Jewelry
+
+                                    </li>
+
+
+                                 </ul>
+                              </div>
+                              <div class="package-content">
+                                 <h3>
+                                    Gems & Jewelry
+
+                                 </h3>
+
+                                 <p>
+                                    Hold a thousand years of beauty in your palm</p>
+                                 <div class="btn-wrap">
+                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="assets/packages/dress your best.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>$15 </span>
+                              </h6>
+                           </div>
+                           <div class="package-content-wrap">
+                              <div class="package-meta text-center">
+                                 <ul>
+                                    <li>
+                                       <i class="far fa-clock"></i>
+                                       Dress Your Best
+                                    </li>
+
+
+                                 </ul>
+                              </div>
+                              <div class="package-content">
+                                 <h3>
+                                    Dress Your Best
+                                 </h3>
+
+                                 <p>
+                                    Markets that speak in color, craft, and culture</p>
+                                 <div class="btn-wrap">
+                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="package-wrap">
+                           <figure class="feature-image">
+                              <a href="#">
+                                 <img src="assets/packages/sri lankan flavours.jpg" alt="">
+                              </a>
+                           </figure>
+                           <div class="package-price">
+                              <h6>
+                                 <span>$15 </span>
+                              </h6>
+                           </div>
+                           <div class="package-content-wrap">
+                              <div class="package-meta text-center">
+                                 <ul>
+                                    <li>
+                                       <i class="far fa-clock"></i>
+                                       Sri Lankan Flavours
+                                    </li>
+
+
+                                 </ul>
+                              </div>
+                              <div class="package-content">
+                                 <h3>
+                                    Sri Lankan Flavours
+                                 </h3>
+
+                                 <p>
+                                    Spice is our signature taste it raw</p>
                                  <div class="btn-wrap">
                                     <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
                                     <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
@@ -583,5 +897,5 @@
          }
       })();
    </script>
-   
+
 </body>

@@ -39,37 +39,7 @@
 
 <!-- popup -->
  <!-- Maintenance Popup -->
-<div id="maintenancePopup" 
-     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-            background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
-   <div style="background:#fff; padding:30px; border-radius:15px; max-width:400px; text-align:center;
-               box-shadow:0 5px 15px rgba(0,0,0,0.3); animation:popIn 0.4s ease;">
-      <h3 style="color:#e74c3c; font-weight:700;">⚠️ Site Under Maintenance</h3>
-      <p style="color:#333; margin:15px 0;">
-         Please visit our Instagram page for more updates.<br><br>
-         <strong>This is our Instagram page link 👇</strong><br>
-         <a href="https://www.instagram.com/srisoulventures" target="_blank" style="color:#0155AE; font-weight:bold; text-decoration:none;">
-            https://www.instagram.com/
-         </a>
-      </p>
-      <button id="closePopup" 
-              style="background:#0155AE; color:#fff; border:none; padding:10px 25px; border-radius:5px; cursor:pointer;">
-         OK
-      </button>
-   </div>
-</div>
 
-<script>
-   // Show popup when page loads
-   window.addEventListener('load', function() {
-      document.getElementById('maintenancePopup').style.display = 'flex';
-   });
-
-   // Close popup when user clicks OK
-   document.getElementById('closePopup').addEventListener('click', function() {
-      document.getElementById('maintenancePopup').style.display = 'none';
-   });
-</script>
 
 <style>
 @keyframes popIn {
@@ -128,7 +98,7 @@
                                 <div class="package-wrap">
                                     <figure class="feature-image">
                                         <a href="#">
-                                            <img src="https://images.unsplash.com/photo-1580910527739-556eb89f9d65?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                                            <img src="assets/packages/7 day explore mirissa.jpg" alt="">
                                         </a>
                                     </figure>
                                     <div class="package-price">
@@ -173,7 +143,7 @@
                                 <div class="package-wrap">
                                     <figure class="feature-image">
                                         <a href="#">
-                                            <img src="https://images.unsplash.com/photo-1561212661-fc75694d58f9?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                                            <img src="assets/packages/10 day wonders and waves.jpg" alt="">
                                         </a>
                                     </figure>
                                     <div class="package-price">
@@ -220,7 +190,7 @@
                                 <div class="package-wrap">
                                     <figure class="feature-image">
                                         <a href="#">
-                                            <img src="https://images.unsplash.com/photo-1517232115160-ff93364542dd?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                                            <img src="assets/packages/5 day casino and shopping.jpg" alt="">
                                         </a>
                                     </figure>
                                     <div class="package-price">
