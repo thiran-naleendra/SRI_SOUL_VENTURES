@@ -83,7 +83,7 @@
                <div class="package-inner">
                   <h2 class="inner-title">Vibe Collection</h2>
                   <div class="row">
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -124,7 +124,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -162,7 +162,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -200,7 +200,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -241,7 +241,7 @@
                   </div>
                   <h2 class="inner-title">Soul Swift</h2>
                   <div class="row">
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -279,7 +279,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -317,7 +317,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -355,7 +355,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -397,7 +397,7 @@
 
                   <h2 class="inner-title">Beyond The Surface</h2>
                   <div class="row">
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -435,7 +435,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -473,7 +473,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -511,7 +511,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -553,7 +553,7 @@
 
                   <h2 class="inner-title">Unwrapped Ceylon Soulwalk</h2>
                   <div class="row">
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -591,7 +591,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -631,7 +631,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
@@ -669,7 +669,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6">
+                     <div class="col-lg-3 col-md-6">
                         <div class="package-wrap">
                            <figure class="feature-image">
                               <a href="#">
