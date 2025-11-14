@@ -258,10 +258,10 @@
                                  <ul>
 
 
-                                    <li>
+                                   <a href="yala_packege.php"> <li>
                                        <i class="fas fa-map-marker-alt"></i>
                                        Yala Safari
-                                    </li>
+                                    </li> </a>
                                  </ul>
                               </div>
                               <div class="package-content">
