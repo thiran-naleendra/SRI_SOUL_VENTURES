@@ -241,480 +241,484 @@
                   </div>
                   <h2 class="inner-title">Soul Swift</h2>
                   <div class="row">
+
                      <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
+                        <a href="yala_packege.php">
+                           <div class="package-wrap">
+                              <figure class="feature-image">
+
                                  <img src="assets/packages/yala safari.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$94 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
 
-
-                                   <a href="yala_packege.php"> <li>
-                                       <i class="fas fa-map-marker-alt"></i>
-                                       Yala Safari
-                                    </li> </a>
-                                 </ul>
+                              </figure>
+                              <div class="package-price">
+                                 <h6>
+                                    <span>$94 </span>
+                                 </h6>
                               </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Yala Safari
-                                 </h3>
+                              <div class="package-content-wrap">
+                                 <div class="package-meta text-center">
+                                    <ul>
 
-                                 <p>
-                                    Where leopards roam and silence speaks</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+
+                                       <li>
+                                          <i class="fas fa-map-marker-alt"></i>
+                                          Yala Safari
+                                       </li>
+                        </a>
+                        </ul>
                      </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/udawalawa safari.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$94 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Udawalawa Safari
-                                    </li>
+                     <div class="package-content">
+                        <h3>
+                           Yala Safari
+                        </h3>
 
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Udawalawa Safari
-                                 </h3>
-
-                                 <p>
-                                    Feel the earth move beneath their fee</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/bundala safari.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$94 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Bundala Safari
-                                    </li>
-
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Bundala Safari
-                                 </h3>
-
-                                 <p>
-                                    A quiet escape where wetlands whisper</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/kumana Safari.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$94 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Kumana Safari
-                                    </li>
-
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Kumana Safari
-                                 </h3>
-
-                                 <p>
-                                    Where feathers write stories in the sky</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
+                        <p>
+                           Where leopards roam and silence speaks</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
                         </div>
                      </div>
                   </div>
+               </div>
+               </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/udawalawa safari.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$94 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Udawalawa Safari
+                           </li>
 
-                  <h2 class="inner-title">Beyond The Surface</h2>
-                  <div class="row">
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/crocodile watching.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$94 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
 
-
-                                    <li>
-                                       <i class="fas fa-map-marker-alt"></i>
-                                       Crocodile Watching
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Crocodile Watching
-                                 </h3>
-
-                                 <p>
-                                    Where stillness hides the fierce</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        </ul>
                      </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/snake farm.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$33 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Snake Farm
-                                    </li>
+                     <div class="package-content">
+                        <h3>
+                           Udawalawa Safari
+                        </h3>
 
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Snake Farm
-                                 </h3>
-
-                                 <p>
-                                    Where danger and beauty coil as one</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/scuba diving.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$95 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Scuba Diving
-                                    </li>
-
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Scuba Diving
-                                 </h3>
-
-                                 <p>
-                                    The ocean doesn’t speak. It shows</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/whale watching.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$94 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Whale Watching
-                                    </li>
-
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Whale Watching
-                                 </h3>
-
-                                 <p>
-                                    Where the horizon moves with life</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
+                        <p>
+                           Feel the earth move beneath their fee</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
                         </div>
                      </div>
                   </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/bundala safari.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$94 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Bundala Safari
+                           </li>
 
-                  <h2 class="inner-title">Unwrapped Ceylon Soulwalk</h2>
-                  <div class="row">
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/tea plantation.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$15 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
 
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Bundala Safari
+                        </h3>
 
-                                    <li>
-                                       <i class="fas fa-map-marker-alt"></i>
-                                       Tea Plantation
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Tea Plantation
-                                 </h3>
-
-                                 <p>
-                                    From leaf to soul, sip the story of Ceylon</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
+                        <p>
+                           A quiet escape where wetlands whisper</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
                         </div>
                      </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/gems and jewelary.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$80 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Gems & Jewelry
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/kumana Safari.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$94 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Kumana Safari
+                           </li>
 
-                                    </li>
 
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Gems & Jewelry
-
-                                 </h3>
-
-                                 <p>
-                                    Hold a thousand years of beauty in your palm</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        </ul>
                      </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/dress your best.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$15 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Dress Your Best
-                                    </li>
+                     <div class="package-content">
+                        <h3>
+                           Kumana Safari
+                        </h3>
 
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Dress Your Best
-                                 </h3>
-
-                                 <p>
-                                    Markets that speak in color, craft, and culture</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-3 col-md-6">
-                        <div class="package-wrap">
-                           <figure class="feature-image">
-                              <a href="#">
-                                 <img src="assets/packages/sri lankan flavours.jpg" alt="">
-                              </a>
-                           </figure>
-                           <div class="package-price">
-                              <h6>
-                                 <span>$15 </span>
-                              </h6>
-                           </div>
-                           <div class="package-content-wrap">
-                              <div class="package-meta text-center">
-                                 <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       Sri Lankan Flavours
-                                    </li>
-
-
-                                 </ul>
-                              </div>
-                              <div class="package-content">
-                                 <h3>
-                                    Sri Lankan Flavours
-                                 </h3>
-
-                                 <p>
-                                    Spice is our signature taste it raw</p>
-                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                    <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                 </div>
-                              </div>
-                           </div>
+                        <p>
+                           Where feathers write stories in the sky</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-         <!-- packages html end -->
-         <!-- Home activity section html start -->
 
-         <!-- <section class="activity-section">
+         <h2 class="inner-title">Beyond The Surface</h2>
+         <div class="row">
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/crocodile watching.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$94 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+
+
+                           <li>
+                              <i class="fas fa-map-marker-alt"></i>
+                              Crocodile Watching
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Crocodile Watching
+                        </h3>
+
+                        <p>
+                           Where stillness hides the fierce</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/snake farm.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$33 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Snake Farm
+                           </li>
+
+
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Snake Farm
+                        </h3>
+
+                        <p>
+                           Where danger and beauty coil as one</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/scuba diving.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$95 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Scuba Diving
+                           </li>
+
+
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Scuba Diving
+                        </h3>
+
+                        <p>
+                           The ocean doesn’t speak. It shows</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/whale watching.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$94 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Whale Watching
+                           </li>
+
+
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Whale Watching
+                        </h3>
+
+                        <p>
+                           Where the horizon moves with life</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <h2 class="inner-title">Unwrapped Ceylon Soulwalk</h2>
+         <div class="row">
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/tea plantation.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$15 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+
+
+                           <li>
+                              <i class="fas fa-map-marker-alt"></i>
+                              Tea Plantation
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Tea Plantation
+                        </h3>
+
+                        <p>
+                           From leaf to soul, sip the story of Ceylon</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/gems and jewelary.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$80 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Gems & Jewelry
+
+                           </li>
+
+
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Gems & Jewelry
+
+                        </h3>
+
+                        <p>
+                           Hold a thousand years of beauty in your palm</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/dress your best.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$15 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Dress Your Best
+                           </li>
+
+
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Dress Your Best
+                        </h3>
+
+                        <p>
+                           Markets that speak in color, craft, and culture</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <div class="package-wrap">
+                  <figure class="feature-image">
+                     <a href="#">
+                        <img src="assets/packages/sri lankan flavours.jpg" alt="">
+                     </a>
+                  </figure>
+                  <div class="package-price">
+                     <h6>
+                        <span>$15 </span>
+                     </h6>
+                  </div>
+                  <div class="package-content-wrap">
+                     <div class="package-meta text-center">
+                        <ul>
+                           <li>
+                              <i class="far fa-clock"></i>
+                              Sri Lankan Flavours
+                           </li>
+
+
+                        </ul>
+                     </div>
+                     <div class="package-content">
+                        <h3>
+                           Sri Lankan Flavours
+                        </h3>
+
+                        <p>
+                           Spice is our signature taste it raw</p>
+                        <div class="btn-wrap">
+                           <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                           <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+   </div>
+   </div>
+   </div>
+   <!-- packages html end -->
+   <!-- Home activity section html start -->
+
+   <!-- <section class="activity-section">
                <div class="container">
                   <div class="section-heading text-center">
                      <div class="row">
@@ -820,30 +824,30 @@
                </div>
             </section> -->
 
-         <!-- activity html end -->
-      </main>
-      <!-- page detail -->
+   <!-- activity html end -->
+   </main>
+   <!-- page detail -->
 
-      <!-- footer -->
-      <?php include('footer.php'); ?>
-      <!-- footer -->
-      <a id="backTotop" href="#" class="to-top-icon">
-         <i class="fas fa-chevron-up"></i>
-      </a>
-      <!-- custom search field html -->
-      <div class="header-search-form">
-         <div class="container">
-            <div class="header-search-container">
-               <form class="search-form" role="search" method="get">
-                  <input type="text" name="s" placeholder="Enter your text...">
-               </form>
-               <a href="#" class="search-close">
-                  <i class="fas fa-times"></i>
-               </a>
-            </div>
+   <!-- footer -->
+   <?php include('footer.php'); ?>
+   <!-- footer -->
+   <a id="backTotop" href="#" class="to-top-icon">
+      <i class="fas fa-chevron-up"></i>
+   </a>
+   <!-- custom search field html -->
+   <div class="header-search-form">
+      <div class="container">
+         <div class="header-search-container">
+            <form class="search-form" role="search" method="get">
+               <input type="text" name="s" placeholder="Enter your text...">
+            </form>
+            <a href="#" class="search-close">
+               <i class="fas fa-times"></i>
+            </a>
          </div>
       </div>
-      <!-- header html end -->
+   </div>
+   <!-- header html end -->
    </div>
 
    <!-- JavaScript -->

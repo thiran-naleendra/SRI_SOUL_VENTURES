@@ -52,44 +52,58 @@
                 </div>
                 <div class="inner-shape"></div>
             </section>
-            <div class="row align-items-start my-4">
-                <!-- LEFT SIDE – IMAGE -->
-                <div class="col-md-6">
-                    <figure class="feature-image text-center">
-                        <img src="assets/packages/Lepord.jpg" alt="Yala Safari" class="img-fluid rounded">
 
-                    </figure>
-                </div>
 
-                <!-- RIGHT SIDE – DETAILS -->
-                <div class="col-md-6">
+            <div class="container my-5">
+                <div class="row align-items-stretch">
 
-                    <h2 class="mb-3">Where leopards roam and silence speaks</h2>
-
-                    <div class="package-price mb-4">
-                        <h3 class="price">
-                            <span>$94</span> / per person
-                        </h3>
+                    <!-- LEFT IMAGE -->
+                    <div class="col-md-5 mb-4 mb-md-0">
+                        <div class="h-100">
+                            <img src="https://images.pexels.com/photos/13265298/pexels-photo-13265298.jpeg"
+                                alt="Safari"
+                                class="img-fluid rounded shadow w-100 h-100"
+                                style="object-fit: cover; border-radius:10px;">
+                        </div>
                     </div>
 
-                    <h3>DESCRIPTION</h3>
+                    <!-- RIGHT CONTENT -->
+                    <div class="col-md-7 d-flex flex-column justify-content-center">
 
-                    <p>
-                        Start your journey from Ahangama or Mirissa with a comfortable car or van ride (2h15m) to the wild heart of
-                        Sri Lanka — Yala National Park. With a local guide by your side for the entire journey and an expert tracker
-                        in your safari jeep, you’ll explore Yala’s landscapes where leopards, elephants, crocodiles, and exotic birdlife roam free.
-                    </p>
+                        <h2 class="mb-4 fw-bold">Yala Safari Adventure</h2>
 
-                    <ul>
-                        <li>Pick-up from starting point & return coastal drive</li>
-                        <li>A friendly local guide for the entire journey</li>
-                        <li>4 hour jeep safari with wildlife tracker</li>
-                        <li>Refreshments during safari</li>
-                        <li>Authentic Sri Lankan rice & curry lunch</li>
-                        <li>A surprise keepsake to remember your day</li>
-                    </ul>
+                        <p class="text-muted" style="font-size: 17px; line-height: 1.7;">
+                            Start your journey from Ahangama or Mirissa with a comfortable car or van ride (2h15m) to the wild heart of Sri Lanka — Yala National Park. With a local guide by your side for the entire journey and an expert tracker in your safari jeep, you’ll explore Yala’s landscapes where leopards, elephants, crocodiles, and exotic birdlife roam free.
+
+                        </p>
+
+                        <p class="text-muted" style="font-size: 17px; line-height: 1.7;">
+                            Wild, right here in Sri Lanka
+                            You don’t need Africa — the wild is right here in Sri Lanka. As the day closes, enjoy a scenic sunset drive back along the southern coast, carrying memories that will stay with you forever.
+
+                        </p>
+
+                        <h4>What’s Included:</h4>
+                        <ul>
+                            <li>Pick-up from starting point & return coastal drive</li>
+                            <li>A friendly local guide for the entire journey</li>
+                            <li>4 hour jeep safari with wildlife tracker</li>
+                            <li>Refreshments during safari</li>
+                            <li>Authentic Sri Lankan rice & curry lunch</li>
+                            <li>A surprise keepsake to remember your day</li>
+                        </ul>
+
+                        <a href="https://wa.me/947xxxxxxxx?text=I%20want%20to%20book%20Yala%20Safari"
+                            class="btn btn-primary btn-lg px-4 mt-3"
+                            style="border-radius: 40px;">
+                            Book Now
+                        </a>
+
+                    </div>
                 </div>
             </div>
+
+
 
 
         </main>
