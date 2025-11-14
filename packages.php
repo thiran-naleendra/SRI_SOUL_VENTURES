@@ -243,7 +243,7 @@
                   <div class="row">
 
                      <div class="col-lg-3 col-md-6">
-                        <a href="yala_packege.php">
+                        <a href="p_yala.php">
                            <div class="package-wrap">
                               <figure class="feature-image">
 
@@ -284,17 +284,19 @@
                </a>
             </div>
             <div class="col-lg-3 col-md-6">
+               <a href="p_udawalawa.php">
                <div class="package-wrap">
                   <figure class="feature-image">
-                     <a href="#">
+                     
                         <img src="assets/packages/udawalawa safari.jpg" alt="">
-                     </a>
+                    
                   </figure>
                   <div class="package-price">
                      <h6>
                         <span>$94 </span>
                      </h6>
                   </div>
+                   </a>
                   <div class="package-content-wrap">
                      <div class="package-meta text-center">
                         <ul>
@@ -320,19 +322,22 @@
                      </div>
                   </div>
                </div>
+              
             </div>
             <div class="col-lg-3 col-md-6">
+               <a href="p_bundala.php">
                <div class="package-wrap">
                   <figure class="feature-image">
-                     <a href="#">
+                     
                         <img src="assets/packages/bundala safari.jpg" alt="">
-                     </a>
+                    
                   </figure>
                   <div class="package-price">
                      <h6>
                         <span>$94 </span>
                      </h6>
                   </div>
+                  </a>
                   <div class="package-content-wrap">
                      <div class="package-meta text-center">
                         <ul>
@@ -358,6 +363,7 @@
                      </div>
                   </div>
                </div>
+               
             </div>
             <div class="col-lg-3 col-md-6">
                <div class="package-wrap">
