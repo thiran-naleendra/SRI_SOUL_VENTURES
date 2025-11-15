@@ -44,11 +44,11 @@
         <!-- HERO SECTION -->
         <div class="container-fluid p-0">
             <div class="position-relative">
-                <img src="assets/packages/Lepord.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
+                <img src="https://cdn.pixabay.com/photo/2019/08/08/11/33/stingray-4392776_1280.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
 
                 <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                    <h1 class="fw-bold display-5">Yala Safari</h1>
-                    <p class="lead">Where leopards roam and silence speaks</p>
+                    <h1 class="fw-bold display-5" style="color: white;">Scuba Diving</h1>
+                    <h3 class="fw-bold lead" style="color: white;">Discover Sri Lanka’s Underwater World</h3>
                 </div>
             </div>
         </div>
@@ -63,14 +63,11 @@
                 <!-- LEFT TEXT -->
                 <div class="col-md-7 mb-4">
                     <p style="font-size:17px; line-height:1.7;">
-                        Start your journey from Ahangama or Mirissa with a comfortable car or van ride (2h15m) to the wild heart of Sri Lanka — Yala National Park. With a local guide by your side for the entire journey and an expert tracker in your safari jeep, you’ll explore Yala’s landscapes where leopards, elephants, crocodiles, and exotic birdlife roam free.
-
-                    </p>
-
+                        Take a step beyond the shore and dive into a whole new world beneath the Indian Ocean. Our Scuba Diving experience from the southern coast (Ahangama / Mirissa / Weligama) lets you explore vibrant coral reefs, colorful tropical fish, and mysterious shipwrecks hidden below the waves.
+                        Led by certified instructors and local dive masters, this adventure is safe for both beginners and experienced divers. If it’s your first time, don’t worry — we’ll guide you through every step, from learning the basics to taking your very first breath underwater.
                     <p style="font-size:17px; line-height:1.7;">
-                        Wild, right here in Sri Lanka
-                        You don’t need Africa — the wild is right here in Sri Lanka. As the day closes, enjoy a scenic sunset drive back along the southern coast, carrying memories that will stay with you forever.
-
+                        The waters of southern Sri Lanka are alive with wonders — parrotfish, angelfish, moray eels, sea turtles, and sometimes even reef sharks or dolphins. Every dive is a chance to witness a piece of the ocean’s secret beauty.
+                        Whether you’re a first-timer or a seasoned diver, this is more than an activity — it’s a memory of freedom, silence, and wonder under the sea. 
                     </p>
 
 
@@ -82,12 +79,12 @@
                     <div class="p-4" style="background:#f1f1f1; border-radius:10px;">
                         <h3>What’s Included:</h3>
                         <ul>
-                            <li>Pick-up from starting point & return coastal drive</li>
-                            <li>A friendly local guide for the entire journey</li>
-                            <li>4 hour jeep safari with wildlife tracker</li>
-                            <li>Refreshments during safari</li>
-                            <li>Authentic Sri Lankan rice & curry lunch</li>
-                            <li>A surprise keepsake to remember your day</li>
+                            <li>Boat ride to the best dive sites</li>
+                            <li>Certified dive instructor & local guide</li>
+                            <li>Full set of professional scuba gear</li>
+                            <li>Explore coral reefs, marine life & shipwrecks</li>
+                            <li>Refreshments during the trip</li>
+                            <li>Option to capture your underwater memories</li>
                         </ul>
 
 
@@ -100,7 +97,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
 

@@ -44,11 +44,11 @@
         <!-- HERO SECTION -->
         <div class="container-fluid p-0">
             <div class="position-relative">
-                <img src="https://www.srilankaecotourism.lk/location_img/1489647984bundala_13.5.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
+                <img src="https://cdn.pixabay.com/photo/2020/02/12/12/36/bird-4842636_960_720.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
 
                 <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                    <h1 class="fw-bold display-5" style="color: black;">Bundala Safari</h1>
-                    <h3 class="fw-bold lead" style="color: black;">Birdwatcher’s Paradise</h3>
+                    <h1 class="fw-bold display-5" style="color: white;">Bundala Safari</h1>
+                    <h3 class="fw-bold lead" style="color: white;">Birdwatcher’s Paradise</h3>
                 </div>
             </div>
         </div>
@@ -73,11 +73,7 @@
 
                     </p>
 
-                    <a href="https://wa.me/947xxxxxxxx?text=I%20want%20to%20book%20Yala%20Safari"
-                        class="btn btn-primary btn-lg px-4 mt-3"
-                        style="border-radius: 40px; background: #663621;">
-                        Book Now
-                    </a>
+                    
 
                 </div>
 
@@ -95,6 +91,13 @@
                         </ul>
 
 
+                    </div>
+                    <div class="position-center ">
+                        <a href="https://wa.me/947xxxxxxxx?text=I%20want%20to%20book%20Yala%20Safari"
+                            class="btn btn-primary btn-lg px-5 mt-4"
+                            style="border-radius: 40px; background: #6200ffff;">
+                            Book Now
+                        </a>
                     </div>
                 </div>
             </div>

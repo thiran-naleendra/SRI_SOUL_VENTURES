@@ -44,11 +44,11 @@
         <!-- HERO SECTION -->
         <div class="container-fluid p-0">
             <div class="position-relative">
-                <img src="assets/packages/Lepord.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
+                <img src="https://cdn.pixabay.com/photo/2021/09/08/06/40/weaver-6605821_960_720.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
 
                 <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                    <h1 class="fw-bold display-5">Yala Safari</h1>
-                    <p class="lead">Where leopards roam and silence speaks</p>
+                    <h1 class="fw-bold display-5" style="color: white;">Kumana Safari</h1>
+                    <h3 class="fw-bold lead" style="color: white;">Untouched Wilderness Adventure</h3>
                 </div>
             </div>
         </div>
@@ -63,13 +63,12 @@
                 <!-- LEFT TEXT -->
                 <div class="col-md-7 mb-4">
                     <p style="font-size:17px; line-height:1.7;">
-                        Start your journey from Ahangama or Mirissa with a comfortable car or van ride (2h15m) to the wild heart of Sri Lanka — Yala National Park. With a local guide by your side for the entire journey and an expert tracker in your safari jeep, you’ll explore Yala’s landscapes where leopards, elephants, crocodiles, and exotic birdlife roam free.
-
+                        Your journey begins from Starting point, with a scenic 3 hour drive by car or van through coastal roads and countryside views, until you reach the gates of Kumana National Park — a sanctuary famous for its serenity and birdlife.
+                        <br>Accompanied by a local guide for your entire journey and an experienced tracker in your safari jeep, you’ll explore Kumana’s quiet lagoons, mangroves, and forests. This park is a haven for migratory and rare birds, including painted storks, spoonbills, pelicans, and the rare black-necked stork. Alongside the birds, you may also spot elephants, crocodiles, wild buffalo, and even the shy leopard.
                     </p>
 
                     <p style="font-size:17px; line-height:1.7;">
-                        Wild, right here in Sri Lanka
-                        You don’t need Africa — the wild is right here in Sri Lanka. As the day closes, enjoy a scenic sunset drive back along the southern coast, carrying memories that will stay with you forever.
+                        Unlike the busy Yala, Kumana offers peace, solitude, and untouched wilderness — perfect for travelers seeking a truly natural and soulful safari. As the day winds down, you’ll return along the coast, carrying with you the calm beauty of Sri Lanka’s wild side.
 
                     </p>
 
@@ -82,9 +81,9 @@
                     <div class="p-4" style="background:#f1f1f1; border-radius:10px;">
                         <h3>What’s Included:</h3>
                         <ul>
-                            <li>Pick-up from starting point & return coastal drive</li>
+                            <li>Pick-up from Starting point & return drive</li>
                             <li>A friendly local guide for the entire journey</li>
-                            <li>4 hour jeep safari with wildlife tracker</li>
+                            <li>Full-day jeep safari with expert tracker</li>
                             <li>Refreshments during safari</li>
                             <li>Authentic Sri Lankan rice & curry lunch</li>
                             <li>A surprise keepsake to remember your day</li>
@@ -100,7 +99,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
 

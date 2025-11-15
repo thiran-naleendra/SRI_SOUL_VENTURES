@@ -44,11 +44,11 @@
         <!-- HERO SECTION -->
         <div class="container-fluid p-0">
             <div class="position-relative">
-                <img src="assets/packages/Lepord.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
+                <img src="https://cdn.pixabay.com/photo/2018/11/03/21/05/coat-hangers-3792840_1280.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
 
                 <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                    <h1 class="fw-bold display-5">Yala Safari</h1>
-                    <p class="lead">Where leopards roam and silence speaks</p>
+                    <h1 class="fw-bold display-5" style="color: white;">Dress Your Best</h1>
+                    <h3 class="fw-bold lead" style="color: white;">Traditional Sri Lankan Experience</h3>
                 </div>
             </div>
         </div>
@@ -63,13 +63,12 @@
                 <!-- LEFT TEXT -->
                 <div class="col-md-7 mb-4">
                     <p style="font-size:17px; line-height:1.7;">
-                        Start your journey from Ahangama or Mirissa with a comfortable car or van ride (2h15m) to the wild heart of Sri Lanka — Yala National Park. With a local guide by your side for the entire journey and an expert tracker in your safari jeep, you’ll explore Yala’s landscapes where leopards, elephants, crocodiles, and exotic birdlife roam free.
-
-                    </p>
-
+                        Step into the colors and elegance of Sri Lanka’s culture with our Dress Your Best experience. This unique activity lets you try on traditional Sri Lankan attire, giving you the chance to not just see our culture, but to truly live it.
+                        Ladies can adorn themselves in the graceful Sri Lankan saree, while gentlemen can try the traditional sarong and national dress. But it’s not only about wearing clothes — it’s about discovering the artistry behind them.
+                        Sri Lanka is known worldwide for its batik and handloom industries. Batik brings vibrant colors and bold patterns through a centuries-old wax-resist dyeing technique, while handloom weaving creates elegant, textured fabrics with rich tradition. Many of the outfits you’ll wear are handmade by local artisans, each piece carrying stories of heritage and skill passed down through generations.
                     <p style="font-size:17px; line-height:1.7;">
-                        Wild, right here in Sri Lanka
-                        You don’t need Africa — the wild is right here in Sri Lanka. As the day closes, enjoy a scenic sunset drive back along the southern coast, carrying memories that will stay with you forever.
+                        Whether it’s for cultural appreciation, fun, or unforgettable photographs, this experience connects you with Sri Lanka’s soul. You won’t just dress your best — you’ll wear the craft, art, and heart of our island. 🌸
+
 
                     </p>
 
@@ -82,12 +81,12 @@
                     <div class="p-4" style="background:#f1f1f1; border-radius:10px;">
                         <h3>What’s Included:</h3>
                         <ul>
-                            <li>Pick-up from starting point & return coastal drive</li>
-                            <li>A friendly local guide for the entire journey</li>
-                            <li>4 hour jeep safari with wildlife tracker</li>
-                            <li>Refreshments during safari</li>
-                            <li>Authentic Sri Lankan rice & curry lunch</li>
-                            <li>A surprise keepsake to remember your day</li>
+                            <li>Dress up in traditional attire (saree, sarong, or national dress)</li>
+                            <li>Learn about batik & handloom crafts and their cultural value</li>
+                            <li>Guidance from locals on how to wear them properly</li>
+                            <li>A photo session to capture your best look</li>
+                            <li>Local refreshments during the experience</li>
+                            <li>A small keepsake to take home</li>
                         </ul>
 
 
@@ -100,7 +99,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
 

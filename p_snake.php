@@ -44,11 +44,11 @@
         <!-- HERO SECTION -->
         <div class="container-fluid p-0">
             <div class="position-relative">
-                <img src="assets/packages/Lepord.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/02/53/python-1866944_1280.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
 
                 <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                    <h1 class="fw-bold display-5">Yala Safari</h1>
-                    <p class="lead">Where leopards roam and silence speaks</p>
+                    <h1 class="fw-bold display-5" style="color: white;">Snake Farm</h1>
+                    <h3 class="fw-bold lead" style="color: white;">A Hidden Gem in Sri Lanka</h3>
                 </div>
             </div>
         </div>
@@ -63,13 +63,11 @@
                 <!-- LEFT TEXT -->
                 <div class="col-md-7 mb-4">
                     <p style="font-size:17px; line-height:1.7;">
-                        Start your journey from Ahangama or Mirissa with a comfortable car or van ride (2h15m) to the wild heart of Sri Lanka — Yala National Park. With a local guide by your side for the entire journey and an expert tracker in your safari jeep, you’ll explore Yala’s landscapes where leopards, elephants, crocodiles, and exotic birdlife roam free.
-
-                    </p>
+                        Just a short drive inland from Ahangama/Mirissa lies one of Sri Lanka’s most unique and educational experiences — the Snake Farm (Telijjawila). This family-run conservation and education center is home to a fascinating collection of snakes and reptiles, offering you the chance to see these mysterious creatures up close in a safe environment.
+                        Guided by a local snake expert, you’ll learn about Sri Lanka’s rich reptile diversity — from harmless non-venomous species to some of the island’s most venomous snakes, such as cobras, kraits, vipers, and pythons. </p>
 
                     <p style="font-size:17px; line-height:1.7;">
-                        Wild, right here in Sri Lanka
-                        You don’t need Africa — the wild is right here in Sri Lanka. As the day closes, enjoy a scenic sunset drive back along the southern coast, carrying memories that will stay with you forever.
+                        The Snake Farm is more than just a display — it’s about education, respect, and conservation. You’ll discover how these reptiles live, their role in the ecosystem, and even how local communities use traditional knowledge to handle snake encounters safely.For nature lovers and curious explorers, this is a rare chance to experience Sri Lanka’s reptile world in an authentic and unforgettable way.
 
                     </p>
 
@@ -82,12 +80,11 @@
                     <div class="p-4" style="background:#f1f1f1; border-radius:10px;">
                         <h3>What’s Included:</h3>
                         <ul>
-                            <li>Pick-up from starting point & return coastal drive</li>
-                            <li>A friendly local guide for the entire journey</li>
-                            <li>4 hour jeep safari with wildlife tracker</li>
-                            <li>Refreshments during safari</li>
-                            <li>Authentic Sri Lankan rice & curry lunch</li>
-                            <li>A surprise keepsake to remember your day</li>
+                            <li>Comfortable transfer from Ahangama</li>
+                            <li>Guided tour by a local snake expert</li>
+                            <li>Live demonstrations of different snake species</li>
+                            <li>Chance to take safe and memorable photos</li>
+                            <li>Learn about conservation and traditional medicine</li>
                         </ul>
 
 
@@ -100,7 +97,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
 

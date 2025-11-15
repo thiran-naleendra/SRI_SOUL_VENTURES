@@ -367,10 +367,11 @@
             </div>
             <div class="col-lg-3 col-md-6">
                <div class="package-wrap">
+                  <a href="p_kumana.php">
                   <figure class="feature-image">
-                     <a href="#">
+                     
                         <img src="assets/packages/kumana Safari.jpg" alt="">
-                     </a>
+                     
                   </figure>
                   <div class="package-price">
                      <h6>
@@ -388,6 +389,7 @@
 
                         </ul>
                      </div>
+                     </a>
                      <div class="package-content">
                         <h3>
                            Kumana Safari
@@ -447,10 +449,11 @@
             </div>
             <div class="col-lg-3 col-md-6">
                <div class="package-wrap">
+                  <a href="p_snake.php">
                   <figure class="feature-image">
-                     <a href="#">
+                    
                         <img src="assets/packages/snake farm.jpg" alt="">
-                     </a>
+                     
                   </figure>
                   <div class="package-price">
                      <h6>
@@ -468,6 +471,7 @@
 
                         </ul>
                      </div>
+                     </a>
                      <div class="package-content">
                         <h3>
                            Snake Farm
@@ -485,10 +489,11 @@
             </div>
             <div class="col-lg-3 col-md-6">
                <div class="package-wrap">
+                  <a href="p_scuba.php">
                   <figure class="feature-image">
-                     <a href="#">
+                     
                         <img src="assets/packages/scuba diving.jpg" alt="">
-                     </a>
+                     
                   </figure>
                   <div class="package-price">
                      <h6>
@@ -506,6 +511,7 @@
 
                         </ul>
                      </div>
+                     </a>
                      <div class="package-content">
                         <h3>
                            Scuba Diving
@@ -565,10 +571,11 @@
          <div class="row">
             <div class="col-lg-3 col-md-6">
                <div class="package-wrap">
+                  <a href="p_tea.php">
                   <figure class="feature-image">
-                     <a href="#">
+                     
                         <img src="assets/packages/tea plantation.jpg" alt="">
-                     </a>
+                     
                   </figure>
                   <div class="package-price">
                      <h6>
@@ -586,6 +593,7 @@
                            </li>
                         </ul>
                      </div>
+                     </a>
                      <div class="package-content">
                         <h3>
                            Tea Plantation
@@ -643,10 +651,11 @@
             </div>
             <div class="col-lg-3 col-md-6">
                <div class="package-wrap">
+                  <a href="p_dress.php">
                   <figure class="feature-image">
-                     <a href="#">
+                    
                         <img src="assets/packages/dress your best.jpg" alt="">
-                     </a>
+                    
                   </figure>
                   <div class="package-price">
                      <h6>
@@ -664,6 +673,7 @@
 
                         </ul>
                      </div>
+                     </a>
                      <div class="package-content">
                         <h3>
                            Dress Your Best

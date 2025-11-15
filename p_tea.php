@@ -44,11 +44,11 @@
         <!-- HERO SECTION -->
         <div class="container-fluid p-0">
             <div class="position-relative">
-                <img src="assets/packages/Lepord.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/10/13/hair-972397_1280.jpg" class="w-100 " style="height:70vh; object-fit:cover; background-position: top center;">
 
                 <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                    <h1 class="fw-bold display-5">Yala Safari</h1>
-                    <p class="lead">Where leopards roam and silence speaks</p>
+                    <h1 class="fw-bold display-5" style="color: white;">Tea Plantation & Wood Carving Experience</h1>
+                    <h3 class="fw-bold lead" style="color: white;">A Journey Into Sri Lanka’s Golden Brew</h3>
                 </div>
             </div>
         </div>
@@ -63,13 +63,10 @@
                 <!-- LEFT TEXT -->
                 <div class="col-md-7 mb-4">
                     <p style="font-size:17px; line-height:1.7;">
-                        Start your journey from Ahangama or Mirissa with a comfortable car or van ride (2h15m) to the wild heart of Sri Lanka — Yala National Park. With a local guide by your side for the entire journey and an expert tracker in your safari jeep, you’ll explore Yala’s landscapes where leopards, elephants, crocodiles, and exotic birdlife roam free.
-
-                    </p>
-
+                        Walk through lush green tea fields in the down south countryside, where local pickers skillfully pluck the freshest leaves. Guided by a friendly local expert, you’ll then step inside a working tea factory to see how these tender leaves are transformed into the rich, golden brew that made Ceylon Tea world-famous. <br>
+                        Of course, no tour is complete without a tea tasting session, where you’ll enjoy different grades of freshly brewed tea — each sip telling the story of Sri Lanka’s culture and craftsmanship.
                     <p style="font-size:17px; line-height:1.7;">
-                        Wild, right here in Sri Lanka
-                        You don’t need Africa — the wild is right here in Sri Lanka. As the day closes, enjoy a scenic sunset drive back along the southern coast, carrying memories that will stay with you forever.
+                        On the way back, we’ll visit a local wood carving workshop, where talented artisans create intricate designs using traditional methods. It’s the perfect chance to admire Sri Lanka’s craftsmanship — and maybe take home a special handmade souvenir. This tour blends nature, culture, and artistry, giving you a true taste of Sri Lanka’s southern charm.
 
                     </p>
 
@@ -82,12 +79,12 @@
                     <div class="p-4" style="background:#f1f1f1; border-radius:10px;">
                         <h3>What’s Included:</h3>
                         <ul>
-                            <li>Pick-up from starting point & return coastal drive</li>
-                            <li>A friendly local guide for the entire journey</li>
-                            <li>4 hour jeep safari with wildlife tracker</li>
-                            <li>Refreshments during safari</li>
-                            <li>Authentic Sri Lankan rice & curry lunch</li>
-                            <li>A surprise keepsake to remember your day</li>
+                            <li>Comfortable transfers from starting point or nearby</li>
+                            <li>Guided walk through down south tea fields</li>
+                            <li>Visit to a functioning tea factory</li>
+                            <li>Tea tasting session with authentic Ceylon Tea</li>
+                            <li>Scenic countryside photo stops</li>
+                            <li>Option to purchase fresh tea to take home</li>
                         </ul>
 
 
@@ -100,7 +97,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
 

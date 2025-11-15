@@ -72,11 +72,7 @@
                         Known as Sri Lanka’s birdwatcher’s paradise, Bundala offers moments of peace and discovery that will leave you enchanted.As the safari ends, we return along the southern coastal road, with the evening sky glowing over the lagoons — the perfect ending to a day of nature and wonder.
                     </p>
 
-                    <a href="https://wa.me/947xxxxxxxx?text=I%20want%20to%20book%20Yala%20Safari"
-                        class="btn btn-primary btn-lg px-4 mt-3"
-                        style="border-radius: 40px; background: #663621;">
-                        Book Now
-                    </a>
+                    
 
                 </div>
 
@@ -94,6 +90,13 @@
                         </ul>
 
 
+                    </div>
+                    <div class="position-center ">
+                        <a href="https://wa.me/947xxxxxxxx?text=I%20want%20to%20book%20Yala%20Safari"
+                            class="btn btn-primary btn-lg px-5 mt-4"
+                            style="border-radius: 40px; background: #6200ffff;">
+                            Book Now
+                        </a>
                     </div>
                 </div>
             </div>
