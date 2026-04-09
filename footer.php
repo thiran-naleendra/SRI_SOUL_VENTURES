@@ -23,13 +23,21 @@
                         <li>
                            <a href="tel:+94783099090">
                               <i class="fas fa-phone-alt"></i>
-                              +94 (78) 309 9090
+                              +94 (78) 309 9090 (Ramesha)
+                           </a>
+                           <a href="tel:+94762830687">
+                              <i class="fas fa-phone-alt"></i>
+                              +94 76 283 0687 Kanijan (WhatsApp only)
+                           </a>
+                           <a href="tel:+94762830687">
+                              <i class="fas fa-phone-alt"></i>
+                              +94 76 349 6606. (Jayashan)
                            </a>
                         </li>
                         <li>
                            <a href="mailto:support@srisoulventures.com">
                               <i class="fas fa-envelope"></i>
-                              support@srisoulventures.com
+                              srisoulventures@gmail.com
                            </a>
                         </li>
                         <li>
