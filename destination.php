@@ -2,74 +2,281 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- favicon -->
     <link rel="icon" type="image/png" href="assets/images/main-logo.png">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" media="all">
-    <!-- Fonts Awesome CSS -->
     <link rel="stylesheet" type="text/css" href="assets/vendors/fontawesome/css/all.min.css">
-    <!-- jquery-ui css -->
     <link rel="stylesheet" type="text/css" href="assets/vendors/jquery-ui/jquery-ui.min.css">
-    <!-- modal video css -->
     <link rel="stylesheet" type="text/css" href="assets/vendors/modal-video/modal-video.min.css">
-    <!-- light box css -->
     <link rel="stylesheet" type="text/css" href="assets/vendors/lightbox/dist/css/lightbox.min.css">
-    <!-- slick slider css -->
     <link rel="stylesheet" type="text/css" href="assets/vendors/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/vendors/slick/slick-theme.css">
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&amp;family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
+
     <title>SRI SOUL VENTURES</title>
+
     <style>
-        .single-page-section {
-            padding: 20px 0;
+        :root {
+            --primary-color: #1f6b57;
+            --secondary-color: #f4a261;
+            --text-dark: #222;
+            --text-light: #666;
+            --bg-light: #f8fafb;
+            --white: #ffffff;
+            --border-light: #e9eef1;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.12);
+            --radius-lg: 18px;
+            --radius-md: 12px;
         }
 
-        .single-page-section .container {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
         }
 
-        /* Image styling */
-        .single-feature-img {
-            width: 50vh;
-            flex-shrink: 0;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .inner-banner-wrap {
+            margin-bottom: 40px;
+        }
+
+        .inner-baner-container {
+            position: relative;
+            background-size: cover;
+            background-position: center center;
+            padding: 140px 0 110px;
+        }
+
+        .inner-baner-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35));
+        }
+
+        .inner-banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .inner-title {
+            color: #fff;
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .destinations-wrapper {
+            padding: 10px 0 70px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 40px;
+        }
+
+        .section-intro h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-intro p {
+            font-size: 16px;
+            color: var(--text-light);
             margin: 0;
         }
 
-        .single-feature-img img {
+        .destination-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 35px;
+            transition: all 0.35s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .destination-card .row {
+            align-items: stretch;
+        }
+
+        .destination-image-wrap {
+            height: 100%;
+            min-height: 340px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destination-image-wrap img {
             width: 100%;
-            height: auto;
-            border-radius: 10px;
+            height: 100%;
+            object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
         }
 
-        /* Content styling */
-        .page-content {
-            max-width: 600px;
+        .destination-card:hover .destination-image-wrap img {
+            transform: scale(1.05);
         }
 
-        /* ✅ Responsive for mobile */
-        @media (max-width: 768px) {
-            .single-page-section .container {
+        .destination-content {
+            padding: 35px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .destination-content h2 {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .destination-content h2::after {
+            content: "";
+            display: block;
+            width: 65px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 20px;
+            margin-top: 12px;
+        }
+
+        .vibe-badge {
+            display: inline-block;
+            background: rgba(31, 107, 87, 0.08);
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .info-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .destination-content ul {
+            padding-left: 0;
+            margin-bottom: 20px;
+            list-style: none;
+        }
+
+        .destination-content ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .destination-content ul li::before {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--secondary-color);
+        }
+
+        .destination-note {
+            background: #f9fbfc;
+            border-left: 4px solid var(--primary-color);
+            padding: 16px 18px;
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+
+        .destination-note p {
+            margin: 0 0 8px;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .destination-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .destination-note strong {
+            color: var(--primary-color);
+        }
+
+        .destination-card.reverse .row {
+            flex-direction: row-reverse;
+        }
+
+        @media (max-width: 991px) {
+            .inner-title {
+                font-size: 40px;
+            }
+
+            .destination-image-wrap {
+                min-height: 280px;
+            }
+
+            .destination-content {
+                padding: 28px 24px;
+            }
+
+            .destination-content h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .inner-baner-container {
+                padding: 100px 0 80px;
+            }
+
+            .inner-title {
+                font-size: 32px;
+            }
+
+            .section-intro h2 {
+                font-size: 28px;
+            }
+
+            .destination-card.reverse .row,
+            .destination-card .row {
                 flex-direction: column;
-                text-align: center;
             }
 
-            .single-feature-img {
-                width: 90%;
+            .destination-image-wrap {
+                min-height: 240px;
             }
 
-            .page-content {
-                max-width: 90%;
+            .destination-content {
+                padding: 24px 20px;
+            }
+
+            .destination-content h2 {
+                font-size: 24px;
             }
         }
     </style>
@@ -81,18 +288,11 @@
             <img src="assets/images/loader1.gif" alt="">
         </div>
     </div>
+
     <div id="page" class="full-page">
-        <!-- nav bar -->
         <?php include('nav.php'); ?>
-        <!-- nav bar -->
 
-
-
-
-
-        <!-- page detail -->
         <main id="content" class="site-main">
-            <!-- Inner Banner html start-->
             <section class="inner-banner-wrap">
                 <div class="inner-baner-container" style="background-image: url(https://thriftynomads.com/wp-content/uploads/2018/07/Nine-Arches-Bridge.jpg);">
                     <div class="container">
@@ -103,205 +303,233 @@
                 </div>
                 <div class="inner-shape"></div>
             </section>
-            <!-- Inner Banner html end-->
-            <!-- packages html start -->
-            <div class="single-page-section" style="padding:20px 0;">
-                <div class="container" style="display:flex; align-items:center; gap:30px; flex-wrap:wrap;">
 
-                    <!-- Image Section -->
-                    <figure class="single-feature-img">
-                        <img src="assets/destinations/22.jpg" alt="Hill Country">
-                    </figure>
-
-                    <!-- Content Section -->
-                    <div class="page-content" style="max-width:600px;">
-                        <h2>Down South Coast</h2>
-                        <p>Vibe: Relaxed, Coastal, Trendy</p>
-                        <p>Popular for</p>
-                        <ul>
-                            <li>Surfing (Weligama, Hiriketiya)</li>
-                            <li>Whale watching (Mirissa)</li>
-                            <li>Colonial sites (Galle Fort)</li>
-                            <li>Beach clubs, yoga, and local food scenes</li>
-                        </ul>
-                        <p>
-                            Best for: Couples, backpackers, digital nomads, surfers <br>
-                            Travel Note: Hot and sunny, best from Nov–Apr
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-page-section">
+            <section class="destinations-wrapper">
                 <div class="container">
-                    <!-- Image Section -->
-                    <figure class="single-feature-img">
-                        <img src="assets/destinations/23.jpg" alt="Hill Country">
-                    </figure>
-
-                    <!-- Content Section -->
-                    <div class="page-content">
-                        <h2>Hill Country</h2>
-                        <p>Vibe: Cool, Scenic, Peaceful</p>
-                        <p>Popular for</p>
-                        <ul>
-                            <li>Tea plantations (Nuwara Eliya, Haputale)</li>
-                            <li>Scenic train rides (Ella to Kandy)</li>
-                            <li>Waterfalls, hiking trails, Nine Arches Bridge</li>
-                        </ul>
-                        <p>
-                            Best for: Nature lovers, photographers, slow travelers <br>
-                            Travel Note: Cool year-round, often misty and rainy
-                        </p>
+                    <div class="section-intro">
+                        <h2>Explore Sri Lanka by Region</h2>
+                        <p>From sun-kissed beaches to misty mountains and timeless heritage, discover the unique spirit of each destination.</p>
                     </div>
-                </div>
-            </div>
-            <div class="single-page-section">
-                <div class="container">
-                    <!-- Image Section -->
-                    <figure class="single-feature-img">
-                        <img src="assets/destinations/24.jpg" alt="Hill Country">
-                    </figure>
 
-                    <!-- Content Section -->
-                    <div class="page-content">
-                        <h2>Cultural Triangle</h2>
-                        <p>Vibe: Spiritual, Historic, Sacred</p>
-                        <p>Popular for</p>
-                        <ul>
-                            <li>Sigiriya Rock Fortress</li>
-                            <li> Dambulla Cave Temple</li>
-                            <li>Ancient capitals (Anuradhapura & Polonnaruwa)</li>
-                            <li> Temple of the Sacred Tooth (Kandy)</li>
-                        </ul>
-                        <p>
-                            Best for: Culture seekers, pilgrims, history buffs
-                            Best for: Culture seekers, pilgrims, history buffs <br>
-                            Travel Note: Dry zone, best from May–September
-                        </p>
+                    <!-- 1 -->
+                    <div class="destination-card">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <div class="destination-image-wrap">
+                                    <img src="assets/destinations/22.jpg" alt="Down South Coast">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="destination-content">
+                                    <h2>Down South Coast</h2>
+                                    <span class="vibe-badge">Vibe: Relaxed, Coastal, Trendy</span>
+
+                                    <div class="info-title">Popular for</div>
+                                    <ul>
+                                        <li>Surfing (Weligama, Hiriketiya)</li>
+                                        <li>Whale watching (Mirissa)</li>
+                                        <li>Colonial sites (Galle Fort)</li>
+                                        <li>Beach clubs, yoga, and local food scenes</li>
+                                    </ul>
+
+                                    <div class="destination-note">
+                                        <p><strong>Best for:</strong> Couples, backpackers, digital nomads, surfers</p>
+                                        <p><strong>Travel Note:</strong> Hot and sunny, best from Nov–Apr</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="single-page-section">
-                <div class="container">
-                    <!-- Image Section -->
-                    <figure class="single-feature-img">
-                        <img src="assets/destinations/25.jpg" alt="Hill Country">
-                    </figure>
 
-                    <!-- Content Section -->
-                    <div class="page-content">
-                        <h2> Wildlife & National Parks</h2>
-                        <p>Vibe: Wild, Natural, Untamed</p>
-                        <p>Popular for</p>
-                        <ul>
-                            <li>Leopards in Yala</li>
-                            <li>Elephants in Udawalawa & Minneriya</li>
-                            <li>Birds in Bundala & Kumana</li>
-                            <li> Camping and safaris</li>
-                        </ul>
-                        <p>
-                            Best for:Adventure travelers, wildlife photographers, families <br>
-                            Travel Note: Best time varies by park; dry seasons ideal 
+                    <!-- 2 -->
+                    <div class="destination-card reverse">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <div class="destination-image-wrap">
+                                    <img src="assets/destinations/23.jpg" alt="Hill Country">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="destination-content">
+                                    <h2>Hill Country</h2>
+                                    <span class="vibe-badge">Vibe: Cool, Scenic, Peaceful</span>
 
+                                    <div class="info-title">Popular for</div>
+                                    <ul>
+                                        <li>Tea plantations (Nuwara Eliya, Haputale)</li>
+                                        <li>Scenic train rides (Ella to Kandy)</li>
+                                        <li>Waterfalls, hiking trails, Nine Arches Bridge</li>
+                                    </ul>
 
-                        </p>
+                                    <div class="destination-note">
+                                        <p><strong>Best for:</strong> Nature lovers, photographers, slow travelers</p>
+                                        <p><strong>Travel Note:</strong> Cool year-round, often misty and rainy</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="single-page-section">
-                <div class="container">
-                    <!-- Image Section -->
-                    <figure class="single-feature-img">
-                        <img src="assets/destinations/26.jpg" alt="Hill Country">
-                    </figure>
 
-                    <!-- Content Section -->
-                    <div class="page-content">
-                        <h2> East Coast</h2>
-                        <p> Vibe: Laid-back, Vibrant, Authentic</p>
-                        <p>Popular for</p>
-                        <ul>
-                            <li>Surfing (Arugam Bay)</li>
-                            <li> Snorkeling & diving (Trincomalee, Pigeon Island)</li>
-                            <li> Hindu temples and local festivals</li>
-                            <li> Quiet beaches and untouched coastlines</li>
-                        </ul>
-                        <p>
-                           Best for: Offbeat explorers, surfers, culture lovers <br>
-                           Travel Note: Best visited between April–October 
+                    <!-- 3 -->
+                    <div class="destination-card">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <div class="destination-image-wrap">
+                                    <img src="assets/destinations/24.jpg" alt="Cultural Triangle">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="destination-content">
+                                    <h2>Cultural Triangle</h2>
+                                    <span class="vibe-badge">Vibe: Spiritual, Historic, Sacred</span>
 
+                                    <div class="info-title">Popular for</div>
+                                    <ul>
+                                        <li>Sigiriya Rock Fortress</li>
+                                        <li>Dambulla Cave Temple</li>
+                                        <li>Ancient capitals (Anuradhapura &amp; Polonnaruwa)</li>
+                                        <li>Temple of the Sacred Tooth (Kandy)</li>
+                                    </ul>
 
-                        </p>
+                                    <div class="destination-note">
+                                        <p><strong>Best for:</strong> Culture seekers, pilgrims, history buffs</p>
+                                        <p><strong>Travel Note:</strong> Dry zone, best from May–September</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="single-page-section">
-                <div class="container">
-                    <!-- Image Section -->
-                    <figure class="single-feature-img">
-                        <img src="assets/destinations/27.jpg" alt="Hill Country">
-                    </figure>
 
-                    <!-- Content Section -->
-                    <div class="page-content">
-                        <h2>Western Coast & Capital Region</h2>
-                        <p> Vibe: Urban, Stylish, Energetic</p>
-                        <p>Popular for</p>
-                        <ul>
-                            <li>Colombo city tours & nightlife</li>
-                            <li> Casinos and luxury hotels</li>
-                            <li> Negombo lagoon tours</li>
-                            <li> Shopping, art galleries, food tours</li>
-                        </ul>
-                        <p>
-                           Best for: Offbeat explorers, surfers, culture lovers <br>
-                           Travel Note: Best visited between April–October 
+                    <!-- 4 -->
+                    <div class="destination-card reverse">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <div class="destination-image-wrap">
+                                    <img src="assets/destinations/25.jpg" alt="Wildlife & National Parks">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="destination-content">
+                                    <h2>Wildlife &amp; National Parks</h2>
+                                    <span class="vibe-badge">Vibe: Wild, Natural, Untamed</span>
 
+                                    <div class="info-title">Popular for</div>
+                                    <ul>
+                                        <li>Leopards in Yala</li>
+                                        <li>Elephants in Udawalawa &amp; Minneriya</li>
+                                        <li>Birds in Bundala &amp; Kumana</li>
+                                        <li>Camping and safaris</li>
+                                    </ul>
 
-                        </p>
+                                    <div class="destination-note">
+                                        <p><strong>Best for:</strong>Adventure travelers, wildlife photographers, families</p>
+                                        <p><strong>Travel Note:</strong> Best time varies by park; dry seasons ideal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-             <div class="single-page-section">
-                <div class="container">
-                    <!-- Image Section -->
-                    <figure class="single-feature-img">
-                        <img src="assets/destinations/28.jpg" alt="Hill Country">
-                    </figure>
 
-                    <!-- Content Section -->
-                    <div class="page-content">
-                        <h2>Northern Peninsula</h2>
-                        <p> Vibe: Remote, Spiritual, Cultural Revival</p>
-                        <p>Popular for</p>
-                        <ul>
-                            <li>Hindu temples (Nallur Kandaswamy, Nagadeepa)</li>
-                            <li> Jaffna culture and cuisine</li>
-                            <li> Kayts, Delft, and untouched islands</li>
-                            <li> Unique Tamil heritage and post-war stories</li>
-                        </ul>
-                        <p>
-                           Best for: Cultural enthusiasts, off-grid travelers <br>
-                           Travel Note: Best from May–Sept (dry zone) 
+                    <!-- 5 -->
+                    <div class="destination-card">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <div class="destination-image-wrap">
+                                    <img src="assets/destinations/26.jpg" alt="East Coast">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="destination-content">
+                                    <h2>East Coast</h2>
+                                    <span class="vibe-badge">Vibe: Laid-back, Vibrant, Authentic</span>
 
+                                    <div class="info-title">Popular for</div>
+                                    <ul>
+                                        <li>Surfing (Arugam Bay)</li>
+                                        <li>Snorkeling &amp; diving (Trincomalee, Pigeon Island)</li>
+                                        <li>Hindu temples and local festivals</li>
+                                        <li>Quiet beaches and untouched coastlines</li>
+                                    </ul>
 
-                        </p>
+                                    <div class="destination-note">
+                                        <p><strong>Best for:</strong> Offbeat explorers, surfers, culture lovers</p>
+                                        <p><strong>Travel Note:</strong> Best visited between April–October</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- activity html end -->
+                    <!-- 6 -->
+                    <div class="destination-card reverse">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <div class="destination-image-wrap">
+                                    <img src="assets/destinations/27.jpg" alt="Western Coast & Capital Region">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="destination-content">
+                                    <h2>Western Coast &amp; Capital Region</h2>
+                                    <span class="vibe-badge">Vibe: Urban, Stylish, Energetic</span>
+
+                                    <div class="info-title">Popular for</div>
+                                    <ul>
+                                        <li>Colombo city tours &amp; nightlife</li>
+                                        <li>Casinos and luxury hotels</li>
+                                        <li>Negombo lagoon tours</li>
+                                        <li>Shopping, art galleries, food tours</li>
+                                    </ul>
+
+                                    <div class="destination-note">
+                                        <p><strong>Best for:</strong> Offbeat explorers, surfers, culture lovers</p>
+                                        <p><strong>Travel Note:</strong> Best visited between April–October</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="destination-card">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <div class="destination-image-wrap">
+                                    <img src="assets/destinations/28.jpg" alt="Northern Peninsula">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="destination-content">
+                                    <h2>Northern Peninsula</h2>
+                                    <span class="vibe-badge">Vibe: Remote, Spiritual, Cultural Revival</span>
+
+                                    <div class="info-title">Popular for</div>
+                                    <ul>
+                                        <li>Hindu temples (Nallur Kandaswamy, Nagadeepa)</li>
+                                        <li>Jaffna culture and cuisine</li>
+                                        <li>Kayts, Delft, and untouched islands</li>
+                                        <li>Unique Tamil heritage and post-war stories</li>
+                                    </ul>
+
+                                    <div class="destination-note">
+                                        <p><strong>Best for:</strong> Cultural enthusiasts, off-grid travelers</p>
+                                        <p><strong>Travel Note:</strong> Best from May–Sept (dry zone)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
         </main>
-        <!-- page detail -->
 
-        <!-- footer -->
         <?php include('footer.php'); ?>
-        <!-- footer -->
+
         <a id="backTotop" href="#" class="to-top-icon">
             <i class="fas fa-chevron-up"></i>
         </a>
-        <!-- custom search field html -->
+
         <div class="header-search-form">
             <div class="container">
                 <div class="header-search-container">
@@ -314,10 +542,8 @@
                 </div>
             </div>
         </div>
-        <!-- header html end -->
     </div>
 
-    <!-- JavaScript -->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery.js"></script>
     <script src="../../../cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
@@ -331,6 +557,7 @@
     <script src="assets/vendors/slick/slick.min.js"></script>
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/custom.min.js"></script>
+
     <script>
         (function() {
             var js = "window['__CF$cv$params']={r:'828cee22bdf55137',t:'MTcwMDQ0Mzg1My43NzMwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/9914b343/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";
@@ -352,6 +579,7 @@
                     _0xi.getElementsByTagName('head')[0].appendChild(_0xj);
                 }
             }
+
             if (document.readyState !== 'loading') {
                 handler();
             } else if (window.addEventListener) {
@@ -368,5 +596,6 @@
             }
         })();
     </script>
-
 </body>
+
+</html>
