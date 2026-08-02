@@ -1,0 +1,2 @@
+@extends('layouts.admin',['title'=>'Create Package','description'=>'Build package content, pricing, itinerary, and media.'])
+@section('content')<form method="POST" action="{{ route('admin.packages.store') }}" enctype="multipart/form-data">@csrf @include('admin.packages.partials.form')<div class="mt-4 d-flex gap-2"><button class="btn btn-admin-primary">Create package</button><a class="btn btn-light" href="{{ route('admin.packages.index') }}">Cancel</a></div></form>@endsection

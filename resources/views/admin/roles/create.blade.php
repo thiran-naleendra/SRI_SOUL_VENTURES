@@ -1,0 +1,2 @@
+@extends('layouts.admin', ['title' => 'Add Role', 'description' => 'Create a role and choose its administrative permissions.'])
+@section('content')<form method="POST" action="{{ route('admin.roles.store') }}">@csrf @include('admin.roles.partials.form', ['managedRole' => null])<div class="d-flex gap-2 mt-4"><button class="btn btn-admin-primary">Create role</button><a class="btn btn-light" href="{{ route('admin.roles.index') }}">Cancel</a></div></form>@endsection

@@ -1,0 +1,2 @@
+@extends('layouts.admin', ['title' => 'Create Destination', 'description' => 'Add destination content, media, and publishing details.'])
+@section('content')<form method="POST" action="{{ route('admin.destinations.store') }}" enctype="multipart/form-data">@csrf @include('admin.destinations.partials.form')<div class="d-flex gap-2 mt-4"><button class="btn btn-admin-primary">Create destination</button><a class="btn btn-light" href="{{ route('admin.destinations.index') }}">Cancel</a></div></form>@endsection

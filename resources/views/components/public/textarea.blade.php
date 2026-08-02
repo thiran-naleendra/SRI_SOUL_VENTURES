@@ -1,0 +1,1 @@
+@props(['name','label','value'=>null,'rows'=>5])<div class="mb-3"><label class="form-label" for="{{ $name }}">{{ $label }}</label><textarea id="{{ $name }}" name="{{ $name }}" rows="{{ $rows }}" {{ $attributes->class('form-control form-control-lg rounded-3') }}>{{ old($name,$value) }}</textarea><x-public.validation-error :name="$name" /></div>

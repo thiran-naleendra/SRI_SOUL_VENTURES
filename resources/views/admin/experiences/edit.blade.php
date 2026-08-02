@@ -1,0 +1,2 @@
+@extends('layouts.admin', ['title'=>'Edit Experience','description'=>"Update {$experience->title} and related content."])
+@section('content')<form method="POST" action="{{ route('admin.experiences.update',$experience->id) }}" enctype="multipart/form-data">@csrf @method('PUT') @include('admin.experiences.partials.form')<div class="d-flex gap-2 mt-4"><button class="btn btn-admin-primary">Save experience</button><a class="btn btn-light" href="{{ route('admin.experiences.index') }}">Cancel</a></div></form>@endsection

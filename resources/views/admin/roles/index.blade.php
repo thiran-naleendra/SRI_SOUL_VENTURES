@@ -1,0 +1,7 @@
+@extends('layouts.admin', ['title' => 'Roles', 'description' => 'Manage roles and permission assignments.'])
+
+@section('page-actions')<a class="btn btn-admin-primary" href="{{ route('admin.roles.create') }}">Add role</a>@endsection
+
+@section('content')
+<div class="card admin-card"><div class="table-responsive"><table class="table admin-table align-middle mb-0"><thead><tr><th class="ps-4">Role</th><th>Users</th><th>Permissions</th><th>Last updated</th><th class="text-end pe-4">Actions</th></tr></thead><tbody>@foreach($roles as $role)<tr><td class="ps-4"><strong>{{ str($role->name)->replace('_', ' ')->title() }}</strong><small class="d-block text-muted">{{ $role->name }}</small></td><td>{{ $role->users_count }}</td><td><span class="badge text-bg-success">{{ $role->permissions->count() }}</span><span class="small text-muted ms-2">{{ $role->permissions->take(3)->pluck('name')->join(', ') }}@if($role->permissions->count()>3)…@endif</span></td><td>{{ $role->updated_at?->format('d M Y') }}</td><td class="text-end pe-4 text-nowrap"><a class="btn btn-sm btn-outline-primary" href="{{ route('admin.roles.edit', $role) }}">Edit</a>@if($role->name !== 'super_admin' && $role->users_count === 0)<button class="btn btn-sm btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-confirm-action="{{ route('admin.roles.destroy', $role) }}" data-confirm-message="Delete role {{ $role->name }}?">Delete</button>@endif</td></tr>@endforeach</tbody></table></div></div>
+@endsection

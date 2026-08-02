@@ -1,0 +1,1 @@
+@props(['name','label','type'=>'text','value'=>null])<div class="mb-3"><label class="form-label" for="{{ $name }}">{{ $label }}</label><input id="{{ $name }}" name="{{ $name }}" type="{{ $type }}" value="{{ old($name,$value) }}" {{ $attributes->class(['form-control form-control-lg rounded-3','is-invalid'=>$errors->has($name)]) }}><x-public.validation-error :name="$name" /></div>

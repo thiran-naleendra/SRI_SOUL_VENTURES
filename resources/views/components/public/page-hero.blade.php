@@ -1,0 +1,1 @@
+@props(['title','subtitle'=>null,'image'=>null])<section class="page-hero" style="--hero-image:url('{{ $image?:asset('images/travel-placeholder.jpg') }}')"><div class="container"><h1 class="display-3">{{ $title }}</h1>@if($subtitle)<p class="lead col-lg-7">{{ $subtitle }}</p>@endif</div></section>

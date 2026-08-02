@@ -1,0 +1,4 @@
+@props(['id' => 'confirmationModal', 'title' => 'Please confirm'])
+<div class="modal fade" id="{{ $id }}" tabindex="-1" aria-labelledby="{{ $id }}Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content border-0 shadow"><div class="modal-header"><h2 class="modal-title fs-5" id="{{ $id }}Label">{{ $title }}</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body" data-confirmation-message>Are you sure you want to continue?</div><div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button><form method="POST" action="#">@csrf @method('DELETE')<button type="submit" class="btn btn-danger">Confirm</button></form></div></div></div>
+</div>

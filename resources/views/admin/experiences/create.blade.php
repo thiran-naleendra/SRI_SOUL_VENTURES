@@ -1,0 +1,2 @@
+@extends('layouts.admin', ['title'=>'Create Experience','description'=>'Add experience content, media, and pricing.'])
+@section('content')<form method="POST" action="{{ route('admin.experiences.store') }}" enctype="multipart/form-data">@csrf @include('admin.experiences.partials.form')<div class="d-flex gap-2 mt-4"><button class="btn btn-admin-primary">Create experience</button><a class="btn btn-light" href="{{ route('admin.experiences.index') }}">Cancel</a></div></form>@endsection

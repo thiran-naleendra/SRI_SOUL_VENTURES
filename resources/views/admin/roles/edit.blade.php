@@ -1,0 +1,2 @@
+@extends('layouts.admin', ['title' => 'Edit Role', 'description' => 'Update '.$managedRole->name.' permissions.'])
+@section('content')<form method="POST" action="{{ route('admin.roles.update', $managedRole) }}">@csrf @method('PUT') @include('admin.roles.partials.form')<div class="d-flex gap-2 mt-4"><button class="btn btn-admin-primary">Save role</button><a class="btn btn-light" href="{{ route('admin.roles.index') }}">Cancel</a></div></form>@endsection

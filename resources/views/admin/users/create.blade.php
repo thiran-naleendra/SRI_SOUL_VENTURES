@@ -1,0 +1,2 @@
+@extends('layouts.admin', ['title' => 'Add Administrator', 'description' => 'Create a secure administrative account and assign access roles.'])
+@section('content')<form method="POST" action="{{ route('admin.users.store') }}">@csrf @include('admin.users.partials.form', ['managedUser' => null])<div class="d-flex gap-2 mt-4"><button class="btn btn-admin-primary">Create administrator</button><a class="btn btn-light" href="{{ route('admin.users.index') }}">Cancel</a></div></form>@endsection

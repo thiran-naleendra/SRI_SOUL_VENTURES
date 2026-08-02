@@ -1,0 +1,2 @@
+@extends('layouts.admin',['title'=>'Edit Package','description'=>"Update {$package->title} and all related content."])
+@section('content')<form method="POST" action="{{ route('admin.packages.save',$package->id) }}" enctype="multipart/form-data">@csrf @include('admin.packages.partials.form')<div class="mt-4 d-flex gap-2"><button class="btn btn-admin-primary">Save package</button><a class="btn btn-light" href="{{ route('admin.packages.index') }}">Cancel</a></div></form>@endsection

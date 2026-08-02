@@ -1,0 +1,1 @@
+@props(['title'=>'Nothing to show','text'=>null])<div class="text-center p-5 rounded-panel bg-white"><h2 class="h4">{{ $title }}</h2>@if($text)<p class="text-secondary mb-0">{{ $text }}</p>@endif</div>

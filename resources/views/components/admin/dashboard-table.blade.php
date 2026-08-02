@@ -1,0 +1,2 @@
+@props(['title', 'url'])
+<section class="card admin-card h-100"><div class="card-header bg-white border-0 d-flex align-items-center justify-content-between p-4 pb-2"><h2 class="h5 mb-0">{{ $title }}</h2><a class="small text-success fw-semibold text-decoration-none" href="{{ $url }}">View all →</a></div><div class="table-responsive"><table class="table admin-table dashboard-table align-middle mb-0">{{ $slot }}</table></div></section>

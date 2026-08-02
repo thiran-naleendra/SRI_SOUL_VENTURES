@@ -1,0 +1,1 @@
+@props(['eyebrow'=>null,'title','subtitle'=>null,'center'=>true])<div class="section-heading {{ $center?'text-center mx-auto':'' }} mb-5">@if($eyebrow)<div class="text-uppercase text-success fw-bold small mb-2">{{ $eyebrow }}</div>@endif<h2 class="display-5">{{ $title }}</h2>@if($subtitle)<p class="text-secondary lead">{{ $subtitle }}</p>@endif</div>
