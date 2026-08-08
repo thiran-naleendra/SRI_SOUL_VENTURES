@@ -6,6 +6,7 @@ use App\Models\Destination;
 use App\Models\Package;
 use App\Models\PackageCategory;
 use App\Models\PackageImage;
+use App\Models\PackageInclusion;
 use App\Models\TravelStyle;
 use App\Models\User;
 use Database\Seeders\RolePermissionSeeder;
@@ -45,7 +46,7 @@ class PackageCrudTest extends TestCase
         $package = Package::factory()->create(['package_category_id' => $category->id]);
 
         $this->actingAs($this->superAdmin())
-            ->post(route('admin.packages.update-post', $package), $this->payload($category))
+            ->post(route('admin.packages.update', $package), $this->payload($category))
             ->assertRedirect(route('admin.packages.index'));
     }
 
@@ -117,6 +118,27 @@ class PackageCrudTest extends TestCase
         Storage::disk('public')->assertMissing('packages/gallery/old.jpg');
         Storage::disk('public')->assertExists($package->cover_image);
         Storage::disk('public')->assertExists($package->itinerary_pdf);
+    }
+
+    public function test_post_save_removes_inclusions_and_updates_display_order(): void
+    {
+        [$category] = $this->relations();
+        $package = Package::factory()->create(['package_category_id' => $category->id]);
+        $removed = PackageInclusion::create(['package_id' => $package->id, 'item' => 'Duplicate vehicle', 'display_order' => 1]);
+        $kept = PackageInclusion::create(['package_id' => $package->id, 'item' => 'Government taxes', 'display_order' => 0]);
+
+        $this->actingAs($this->superAdmin())
+            ->post(route('admin.packages.save', $package), $this->payload($category, [
+                'inclusions' => [
+                    ['id' => $removed->id, 'item' => $removed->item, 'display_order' => 1, '_remove' => 1],
+                    ['id' => $kept->id, 'item' => $kept->item, 'display_order' => 9],
+                ],
+            ]))
+            ->assertRedirect(route('admin.packages.index'))
+            ->assertSessionHasNoErrors();
+
+        $this->assertDatabaseMissing('package_inclusions', ['id' => $removed->id]);
+        $this->assertDatabaseHas('package_inclusions', ['id' => $kept->id, 'display_order' => 9]);
     }
 
     public function test_index_filters_and_pagination_work(): void

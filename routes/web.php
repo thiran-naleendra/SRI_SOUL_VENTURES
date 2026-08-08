@@ -61,6 +61,10 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [PublicContactEnquiryController::class, 'store'])->middleware('throttle:5,1')->name('contact.store');
 
 Route::get('/dashboard', function () {
+    if (request()->user()->can('admin.dashboard.view')) {
+        return redirect()->route('admin.dashboard');
+    }
+
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -80,7 +84,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('users/create', [AdminUserController::class, 'create'])->name('users.create');
         Route::post('users', [AdminUserController::class, 'store'])->name('users.store');
         Route::get('users/{user}/edit', [AdminUserController::class, 'edit'])->name('users.edit');
-        Route::put('users/{user}', [AdminUserController::class, 'update'])->name('users.update');
+        Route::match(['post', 'put'], 'users/{user}', [AdminUserController::class, 'update'])->name('users.update');
         Route::delete('users/{user}', [AdminUserController::class, 'destroy'])->name('users.destroy');
     });
 
@@ -89,7 +93,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
         Route::post('roles', [RoleController::class, 'store'])->name('roles.store');
         Route::get('roles/{role}/edit', [RoleController::class, 'edit'])->name('roles.edit');
-        Route::put('roles/{role}', [RoleController::class, 'update'])->name('roles.update');
+        Route::match(['post', 'put'], 'roles/{role}', [RoleController::class, 'update'])->name('roles.update');
         Route::delete('roles/{role}', [RoleController::class, 'destroy'])->name('roles.destroy');
     });
 
@@ -97,7 +101,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('destinations/create', [DestinationController::class, 'create'])->middleware('permission:destinations.create')->name('destinations.create');
     Route::post('destinations', [DestinationController::class, 'store'])->middleware('permission:destinations.create')->name('destinations.store');
     Route::get('destinations/{destination}/edit', [DestinationController::class, 'edit'])->middleware('permission:destinations.update')->name('destinations.edit');
-    Route::put('destinations/{destination}', [DestinationController::class, 'update'])->middleware('permission:destinations.update')->name('destinations.update');
+    Route::post('destinations/{destination}/save', [DestinationController::class, 'update'])->middleware('permission:destinations.update')->name('destinations.save');
+    Route::match(['post', 'put'], 'destinations/{destination}', [DestinationController::class, 'update'])->middleware('permission:destinations.update')->name('destinations.update');
     Route::patch('destinations/{destination}/toggle', [DestinationController::class, 'toggle'])->middleware('permission:destinations.update')->name('destinations.toggle');
     Route::delete('destinations/{destination}', [DestinationController::class, 'destroy'])->middleware('permission:destinations.delete')->name('destinations.destroy');
     Route::patch('destinations/{destination}/restore', [DestinationController::class, 'restore'])->middleware('permission:destinations.delete')->name('destinations.restore');
@@ -106,7 +111,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('experiences/create', [ExperienceController::class, 'create'])->middleware('permission:experiences.create')->name('experiences.create');
     Route::post('experiences', [ExperienceController::class, 'store'])->middleware('permission:experiences.create')->name('experiences.store');
     Route::get('experiences/{experience}/edit', [ExperienceController::class, 'edit'])->middleware('permission:experiences.update')->name('experiences.edit');
-    Route::put('experiences/{experience}', [ExperienceController::class, 'update'])->middleware('permission:experiences.update')->name('experiences.update');
+    Route::match(['post', 'put'], 'experiences/{experience}', [ExperienceController::class, 'update'])->middleware('permission:experiences.update')->name('experiences.update');
     Route::patch('experiences/{experience}/toggle', [ExperienceController::class, 'toggle'])->middleware('permission:experiences.update')->name('experiences.toggle');
     Route::delete('experiences/{experience}', [ExperienceController::class, 'destroy'])->middleware('permission:experiences.delete')->name('experiences.destroy');
     Route::patch('experiences/{experience}/restore', [ExperienceController::class, 'restore'])->middleware('permission:experiences.delete')->name('experiences.restore');
@@ -117,8 +122,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('packages/{package}', [PackageController::class, 'show'])->middleware('permission:packages.update')->name('packages.show');
     Route::get('packages/{package}/edit', [PackageController::class, 'edit'])->middleware('permission:packages.update')->name('packages.edit');
     Route::post('packages/{package}/save', [PackageController::class, 'update'])->middleware('permission:packages.update')->name('packages.save');
-    Route::post('packages/{package}', [PackageController::class, 'update'])->middleware('permission:packages.update')->name('packages.update-post');
-    Route::put('packages/{package}', [PackageController::class, 'update'])->middleware('permission:packages.update')->name('packages.update');
+    Route::match(['post', 'put'], 'packages/{package}', [PackageController::class, 'update'])->middleware('permission:packages.update')->name('packages.update');
     Route::patch('packages/{package}/toggle', [PackageController::class, 'toggle'])->middleware('permission:packages.update')->name('packages.toggle');
     Route::delete('packages/{package}', [PackageController::class, 'destroy'])->middleware('permission:packages.delete')->name('packages.destroy');
     Route::patch('packages/{package}/restore', [PackageController::class, 'restore'])->middleware('permission:packages.delete')->name('packages.restore');
@@ -126,26 +130,26 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('package-enquiries', [PackageEnquiryController::class, 'index'])->middleware('permission:enquiries.view')->name('package-enquiries.index');
     Route::get('package-enquiries/export', [PackageEnquiryController::class, 'export'])->middleware('permission:enquiries.view')->name('package-enquiries.export');
     Route::get('package-enquiries/{packageEnquiry}', [PackageEnquiryController::class, 'show'])->middleware('permission:enquiries.view')->name('package-enquiries.show');
-    Route::put('package-enquiries/{packageEnquiry}', [PackageEnquiryController::class, 'update'])->middleware('permission:enquiries.update')->name('package-enquiries.update');
+    Route::match(['post', 'put'], 'package-enquiries/{packageEnquiry}', [PackageEnquiryController::class, 'update'])->middleware('permission:enquiries.update')->name('package-enquiries.update');
 
     Route::get('custom-tour-requests', [CustomTourRequestController::class, 'index'])->middleware('permission:custom_tours.view')->name('custom-tour-requests.index');
     Route::get('custom-tour-requests/export', [CustomTourRequestController::class, 'export'])->middleware('permission:custom_tours.view')->name('custom-tour-requests.export');
     Route::get('custom-tour-requests/{customTourRequest}', [CustomTourRequestController::class, 'show'])->middleware('permission:custom_tours.view')->name('custom-tour-requests.show');
-    Route::put('custom-tour-requests/{customTourRequest}', [CustomTourRequestController::class, 'update'])->middleware('permission:custom_tours.update')->name('custom-tour-requests.update');
+    Route::match(['post', 'put'], 'custom-tour-requests/{customTourRequest}', [CustomTourRequestController::class, 'update'])->middleware('permission:custom_tours.update')->name('custom-tour-requests.update');
 
     Route::get('contact-enquiries', [ContactEnquiryController::class, 'index'])->middleware('permission:enquiries.view')->name('contact-enquiries.index');
     Route::get('contact-enquiries/{contactEnquiry}', [ContactEnquiryController::class, 'show'])->middleware('permission:enquiries.view')->name('contact-enquiries.show');
-    Route::put('contact-enquiries/{contactEnquiry}', [ContactEnquiryController::class, 'update'])->middleware('permission:enquiries.update')->name('contact-enquiries.update');
+    Route::match(['post', 'put'], 'contact-enquiries/{contactEnquiry}', [ContactEnquiryController::class, 'update'])->middleware('permission:enquiries.update')->name('contact-enquiries.update');
     Route::delete('contact-enquiries/{contactEnquiry}', [ContactEnquiryController::class, 'destroy'])->middleware('permission:enquiries.update')->name('contact-enquiries.destroy');
 
     Route::get('settings', [WebsiteSettingController::class, 'edit'])->middleware('permission:settings.manage')->name('settings.index');
-    Route::put('settings', [WebsiteSettingController::class, 'update'])->middleware('permission:settings.manage')->name('settings.update');
+    Route::match(['post', 'put'], 'settings', [WebsiteSettingController::class, 'update'])->middleware('permission:settings.manage')->name('settings.update');
 
     Route::get('pages', [PageSectionController::class, 'index'])->middleware('permission:pages.manage')->name('pages.index');
     Route::get('pages/create', [PageSectionController::class, 'create'])->middleware('permission:pages.manage')->name('pages.create');
     Route::post('pages', [PageSectionController::class, 'store'])->middleware('permission:pages.manage')->name('pages.store');
     Route::get('pages/{page}/edit', [PageSectionController::class, 'edit'])->middleware('permission:pages.manage')->name('pages.edit');
-    Route::put('pages/{page}', [PageSectionController::class, 'update'])->middleware('permission:pages.manage')->name('pages.update');
+    Route::match(['post', 'put'], 'pages/{page}', [PageSectionController::class, 'update'])->middleware('permission:pages.manage')->name('pages.update');
     Route::delete('pages/{page}', [PageSectionController::class, 'destroy'])->middleware('permission:pages.manage')->name('pages.destroy');
 
     foreach ([['testimonials', TestimonialController::class, 'testimonials.manage'], ['team-members', TeamMemberController::class, 'team.manage'], ['faqs', FaqController::class, 'faqs.manage']] as [$uri, $controller, $permission]) {
@@ -153,7 +157,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get("{$uri}/create", [$controller, 'create'])->middleware("permission:{$permission}")->name("{$uri}.create");
         Route::post($uri, [$controller, 'store'])->middleware("permission:{$permission}")->name("{$uri}.store");
         Route::get("{$uri}/{id}/edit", [$controller, 'edit'])->middleware("permission:{$permission}")->name("{$uri}.edit");
-        Route::put("{$uri}/{id}", [$controller, 'update'])->middleware("permission:{$permission}")->name("{$uri}.update");
+        Route::match(['post', 'put'], "{$uri}/{id}", [$controller, 'update'])->middleware("permission:{$permission}")->name("{$uri}.update");
         Route::delete("{$uri}/{id}", [$controller, 'destroy'])->middleware("permission:{$permission}")->name("{$uri}.destroy");
         Route::patch("{$uri}/{id}/restore", [$controller, 'restore'])->middleware("permission:{$permission}")->name("{$uri}.restore");
     }
@@ -170,7 +174,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get("{$uri}/create", [$controller, 'create'])->middleware("permission:{$permission}.create")->name("{$uri}.create");
         Route::post($uri, [$controller, 'store'])->middleware("permission:{$permission}.create")->name("{$uri}.store");
         Route::get("{$uri}/{id}/edit", [$controller, 'edit'])->middleware("permission:{$permission}.update")->name("{$uri}.edit");
-        Route::put("{$uri}/{id}", [$controller, 'update'])->middleware("permission:{$permission}.update")->name("{$uri}.update");
+        Route::match(['post', 'put'], "{$uri}/{id}", [$controller, 'update'])->middleware("permission:{$permission}.update")->name("{$uri}.update");
         Route::patch("{$uri}/{id}/toggle", [$controller, 'toggle'])->middleware("permission:{$permission}.update")->name("{$uri}.toggle");
         Route::delete("{$uri}/{id}", [$controller, 'destroy'])->middleware("permission:{$permission}.delete")->name("{$uri}.destroy");
         Route::patch("{$uri}/{id}/restore", [$controller, 'restore'])->middleware("permission:{$permission}.delete")->name("{$uri}.restore");

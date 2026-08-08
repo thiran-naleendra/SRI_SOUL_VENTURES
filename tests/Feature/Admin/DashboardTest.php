@@ -74,6 +74,31 @@ class DashboardTest extends TestCase
             ->assertViewHas('recentPackageEnquiries', fn ($items) => $items->count() === 5);
     }
 
+    public function test_dashboard_handles_popular_content_with_soft_deleted_relationships(): void
+    {
+        $destination = Destination::factory()->create();
+        $experience = Experience::factory()->for($destination)->create([
+            'is_popular' => true,
+            'title' => 'Legacy Experience',
+        ]);
+        $package = Package::factory()->create([
+            'is_popular' => true,
+            'title' => 'Legacy Package',
+        ]);
+
+        $experience->category->delete();
+        $destination->delete();
+        $package->category->delete();
+
+        $this->actingAs($this->userWithRole('super_admin'))
+            ->get(route('admin.dashboard'))
+            ->assertOk()
+            ->assertSee('Legacy Experience')
+            ->assertSee('Unavailable destination')
+            ->assertSee('Uncategorized')
+            ->assertSee('Legacy Package');
+    }
+
     public function test_monthly_chart_combines_authorized_enquiry_sources_for_last_twelve_months(): void
     {
         PackageEnquiry::factory()->create(['created_at' => now()->startOfMonth()]);

@@ -1,1 +1,39 @@
-@props(['settings'])<footer class="footer-public pt-5 pb-4"><div class="container"><div class="row g-4"><div class="col-lg-5"><h2 class="h3 text-white">{{ $settings?->website_name?:config('app.name') }}</h2><p>{{ $settings?->footer_description }}</p><p>{{ $settings?->address }}</p></div><div class="col-6 col-lg-2"><h3 class="h6 text-white">Explore</h3><a class="d-block mb-2" href="{{ route('destinations.index') }}">Destinations</a><a class="d-block mb-2" href="{{ route('experiences.index') }}">Experiences</a><a class="d-block" href="{{ route('packages.index') }}">Packages</a></div><div class="col-6 col-lg-2"><h3 class="h6 text-white">Company</h3><a class="d-block mb-2" href="{{ route('about') }}">About</a><a class="d-block" href="{{ route('contact') }}">Contact</a></div><div class="col-lg-3"><h3 class="h6 text-white">Contact</h3>@if($settings?->primary_phone)<a class="d-block mb-2" href="tel:{{ $settings->primary_phone }}">{{ $settings->primary_phone }}</a>@endif @if($settings?->primary_email)<a href="mailto:{{ $settings->primary_email }}">{{ $settings->primary_email }}</a>@endif<p class="mt-2">{{ $settings?->business_hours }}</p></div></div><hr class="border-secondary"><div class="d-flex flex-wrap justify-content-between align-items-center gap-2"><div class="d-flex flex-wrap align-items-center gap-2"><small>{{ $settings?->copyright_text }}</small><small class="text-white-50">Website designed &amp; developed by <span class="text-white">WebX Tech Solutions</span></small></div><div>@foreach(['facebook_url'=>'Facebook','instagram_url'=>'Instagram','youtube_url'=>'YouTube','linkedin_url'=>'LinkedIn'] as $field=>$label)@if($settings?->{$field})<a class="ms-3" target="_blank" rel="noopener" href="{{ $settings->{$field} }}">{{ $label }}</a>@endif @endforeach</div></div></div></footer>
+@props(['settings'])
+<footer class="footer-public pt-5 pb-4">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <h2 class="h3 text-white">{{ $settings?->website_name ?: config('app.name') }}</h2>
+                <p>{{ $settings?->footer_description }}</p>
+                <p>{{ $settings?->address }}</p>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h3 class="h6 text-white">Explore</h3><a class="d-block mb-2"
+                    href="{{ route('destinations.index') }}">Destinations</a><a class="d-block mb-2"
+                    href="{{ route('experiences.index') }}">Experiences</a><a class="d-block"
+                    href="{{ route('packages.index') }}">Packages</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h3 class="h6 text-white">Company</h3><a class="d-block mb-2" href="{{ route('about') }}">About</a><a
+                    class="d-block" href="{{ route('contact') }}">Contact</a>
+            </div>
+            <div class="col-lg-3">
+                <h3 class="h6 text-white">Contact</h3>@if($settings?->primary_phone)<a class="d-block mb-2"
+                href="tel:{{ $settings->primary_phone }}">{{ $settings->primary_phone }}</a>@endif
+                @if($settings?->primary_email)<a
+                href="mailto:{{ $settings->primary_email }}">{{ $settings->primary_email }}</a>@endif<p
+                    class="mt-2">{{ $settings?->business_hours }}</p>
+            </div>
+        </div>
+        <hr class="border-secondary">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div class="d-flex flex-wrap align-items-center gap-2"><small>{{ $settings?->copyright_text }}</small><small
+                    class="text-white-50">Website designed &amp; developed by <span class="text-white">WebX Tech
+                        Solutions</span></small></div>
+            <div>
+                @foreach(['facebook_url' => 'Facebook', 'instagram_url' => 'Instagram', 'youtube_url' => 'YouTube', 'linkedin_url' => 'LinkedIn'] as $field => $label)@if($settings?->{$field})<a
+                    class="ms-3" target="_blank" rel="noopener" href="{{ $settings->{$field} }}">{{ $label }}</a>@endif
+                @endforeach</div>
+        </div>
+    </div>
+</footer>

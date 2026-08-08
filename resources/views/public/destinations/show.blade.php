@@ -4,6 +4,25 @@
     @php
         $customCta = $sections->get('custom_journey_cta');
         $destinationImages = collect([$destination->cover_image])->merge($destination->images->pluck('image_path'))->filter()->map(fn ($path) => Storage::disk('public')->url($path))->values()->all();
+        $carouselImages = collect();
+        if ($destination->cover_image) {
+            $carouselImages->push([
+                'url' => Storage::disk('public')->url($destination->cover_image),
+                'alt' => $destination->name,
+                'caption' => null,
+                'priority' => true,
+            ]);
+        }
+        foreach ($destination->images as $image) {
+            if ($image->image_path !== $destination->cover_image) {
+                $carouselImages->push([
+                    'url' => Storage::disk('public')->url($image->image_path),
+                    'alt' => $image->alt_text ?: $destination->name,
+                    'caption' => $image->caption,
+                    'priority' => false,
+                ]);
+            }
+        }
         $destinationSchema = array_filter([
             '@context' => 'https://schema.org',
             '@type' => 'TouristDestination',
@@ -18,12 +37,33 @@
     <x-public.structured-data :data="$destinationSchema" />
     <div class="container py-4"><x-public.breadcrumb :items="['Home' => route('home'), 'Destinations' => route('destinations.index'), $destination->name => '']" /></div>
 
-    @if ($destination->cover_image)
-        <div class="container"><img class="detail-cover" src="{{ Storage::disk('public')->url($destination->cover_image) }}" alt="{{ $destination->name }}" width="1600" height="900" decoding="async" fetchpriority="high" sizes="100vw"></div>
-    @endif
-
-    @if ($destination->images->isNotEmpty())
-        <section class="container pt-4" aria-labelledby="destination-gallery-heading"><h2 class="visually-hidden" id="destination-gallery-heading">{{ $destination->name }} gallery</h2><div class="experience-gallery">@foreach($destination->images as $image)<figure class="mb-0"><img src="{{ Storage::disk('public')->url($image->image_path) }}" alt="{{ $image->alt_text ?: $destination->name }}" loading="lazy" decoding="async" width="900" height="600" sizes="(max-width: 767px) 100vw, 50vw">@if($image->caption)<figcaption class="small text-secondary mt-2">{{ $image->caption }}</figcaption>@endif</figure>@endforeach</div></section>
+    @if ($carouselImages->isNotEmpty())
+        <section class="container" aria-labelledby="destination-gallery-heading">
+            <h2 class="visually-hidden" id="destination-gallery-heading">{{ $destination->name }} gallery</h2>
+            <div id="destinationGallery" class="carousel slide destination-carousel" data-bs-ride="carousel" data-bs-interval="5000" data-bs-touch="true">
+                @if ($carouselImages->count() > 1)
+                    <div class="carousel-indicators">
+                        @foreach ($carouselImages as $image)
+                            <button type="button" data-bs-target="#destinationGallery" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}" aria-label="Show image {{ $loop->iteration }}"></button>
+                        @endforeach
+                    </div>
+                @endif
+                <div class="carousel-inner">
+                    @foreach ($carouselImages as $image)
+                        <figure class="carousel-item mb-0 {{ $loop->first ? 'active' : '' }}">
+                            <img src="{{ $image['url'] }}" class="d-block w-100" alt="{{ $image['alt'] }}" {{ $image['priority'] ? 'fetchpriority=high' : 'loading=lazy' }} decoding="async" width="1600" height="900" sizes="100vw">
+                            @if ($image['caption'])
+                                <figcaption class="carousel-caption"><span>{{ $image['caption'] }}</span></figcaption>
+                            @endif
+                        </figure>
+                    @endforeach
+                </div>
+                @if ($carouselImages->count() > 1)
+                    <button class="carousel-control-prev" type="button" data-bs-target="#destinationGallery" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous image</span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#destinationGallery" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next image</span></button>
+                @endif
+            </div>
+        </section>
     @endif
 
     <section class="section-space pt-5">

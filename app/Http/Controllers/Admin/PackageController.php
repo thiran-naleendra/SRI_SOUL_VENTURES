@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -178,9 +179,20 @@ class PackageController extends Controller
 
     private function syncFileRows(Package $package, string $relation, array $rows, array $fields, string $inputFile, string $columnFile, string $folder, array &$new, array &$old, ?string $required): void
     {
-        $relationQuery = $package->{$relation}();
         foreach ($rows as $row) {
-            $child = isset($row['id']) ? $relationQuery->findOrFail($row['id']) : null;
+            $relationQuery = $package->{$relation}();
+            $childId = $row['id'] ?? null;
+            $child = $childId ? $relationQuery->find($childId) : null;
+
+            if ($childId && ! $child) {
+                Log::warning('Skipped stale package child reference during update.', [
+                    'package_id' => $package->id,
+                    'relation' => $relation,
+                    'child_id' => $childId,
+                ]);
+
+                continue;
+            }
             if ($row['_remove'] ?? false) {
                 if ($child) {
                     $old[] = $child->{$columnFile};
@@ -209,9 +221,20 @@ class PackageController extends Controller
 
     private function syncRows(Package $package, string $relation, array $rows, array $fields, string $required): void
     {
-        $relationQuery = $package->{$relation}();
         foreach ($rows as $row) {
-            $child = isset($row['id']) ? $relationQuery->findOrFail($row['id']) : null;
+            $relationQuery = $package->{$relation}();
+            $childId = $row['id'] ?? null;
+            $child = $childId ? $relationQuery->find($childId) : null;
+
+            if ($childId && ! $child) {
+                Log::warning('Skipped stale package child reference during update.', [
+                    'package_id' => $package->id,
+                    'relation' => $relation,
+                    'child_id' => $childId,
+                ]);
+
+                continue;
+            }
             if ($row['_remove'] ?? false) {
                 $child?->delete();
 

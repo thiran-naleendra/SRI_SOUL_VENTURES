@@ -83,6 +83,25 @@ class DestinationCrudTest extends TestCase
         Storage::disk('public')->assertExists($attraction->image_path);
     }
 
+    public function test_hosting_compatible_save_route_updates_a_destination(): void
+    {
+        $destination = Destination::factory()->create();
+
+        $this->actingAs($this->superAdmin())
+            ->post(route('admin.destinations.save', $destination), $this->payload($destination->region, [
+                'name' => 'Updated Through Save Route',
+                'slug' => '',
+            ]))
+            ->assertRedirect(route('admin.destinations.index'))
+            ->assertSessionHas('success');
+
+        $this->assertDatabaseHas('destinations', [
+            'id' => $destination->id,
+            'name' => 'Updated Through Save Route',
+            'slug' => 'updated-through-save-route',
+        ]);
+    }
+
     public function test_slug_generation_is_unique_even_when_a_record_is_trashed(): void
     {
         $region = DestinationRegion::factory()->create();

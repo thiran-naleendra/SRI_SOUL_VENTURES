@@ -14,6 +14,7 @@
         @if ($package->destinations->isNotEmpty())<p class="small fw-semibold mb-2">{{ $package->destinations->pluck('name')->join(' · ') }}</p>@endif
         <p class="text-secondary">{{ Str::limit($package->short_description, 120) }}</p>
         <div class="package-card-facts small mb-3">
+            @if ($package->is_customizable)<span class="text-success fw-semibold"><span aria-hidden="true">⚙</span> Customizable</span>@endif
             <span>Minimum {{ $package->minimum_travelers }} {{ Str::plural('traveller', $package->minimum_travelers) }}</span>
             @if ($package->physical_level)<span>{{ $package->physical_level }}</span>@endif
         </div>

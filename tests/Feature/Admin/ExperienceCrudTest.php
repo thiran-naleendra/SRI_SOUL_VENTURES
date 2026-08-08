@@ -108,6 +108,25 @@ class ExperienceCrudTest extends TestCase
         $this->get(route('admin.experiences.index', ['category' => $otherCategory->id]))->assertOk()->assertDontSee('Needle Safari');
     }
 
+    public function test_index_handles_experiences_with_soft_deleted_category_and_destination(): void
+    {
+        [$category, $destination] = $this->relations();
+        Experience::factory()->create([
+            'experience_category_id' => $category->id,
+            'destination_id' => $destination->id,
+            'title' => 'Legacy Experience',
+        ]);
+        $category->delete();
+        $destination->delete();
+
+        $this->actingAs($this->superAdmin())
+            ->get(route('admin.experiences.index'))
+            ->assertOk()
+            ->assertSee('Legacy Experience')
+            ->assertSee('Uncategorized')
+            ->assertSee('Unavailable destination');
+    }
+
     public function test_soft_delete_and_restore_preserve_images(): void
     {
         $experience = Experience::factory()->create(['cover_image' => 'experiences/covers/keep.jpg']);

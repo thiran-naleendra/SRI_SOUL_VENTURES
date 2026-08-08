@@ -65,6 +65,16 @@ class AuthenticationTest extends TestCase
             ->assertRedirect(route('admin.dashboard', absolute: false));
     }
 
+    public function test_administrator_visiting_the_default_dashboard_is_redirected_to_admin(): void
+    {
+        $this->seed(RolePermissionSeeder::class);
+        $user = User::factory()->create();
+        $user->assignRole('super_admin');
+
+        $this->actingAs($user)->get(route('dashboard'))
+            ->assertRedirect(route('admin.dashboard'));
+    }
+
     public function test_users_can_logout(): void
     {
         $user = User::factory()->create();

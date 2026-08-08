@@ -8,6 +8,21 @@ use Spatie\Permission\Middleware\PermissionMiddleware;
 use Spatie\Permission\Middleware\RoleMiddleware;
 use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
 
+$webRoutes = dirname(__DIR__).'/routes/web.php';
+$webRoutesModifiedAt = @filemtime($webRoutes) ?: 0;
+
+// Shared-hosting deployments do not always provide terminal access to run
+// route:clear. Discard only a stale route cache; a freshly generated cache is
+// retained because its modification time will be newer than routes/web.php.
+foreach (glob(__DIR__.'/cache/routes-*.php') ?: [] as $routeCache) {
+    $cachedRoutes = @file_get_contents($routeCache) ?: '';
+    $isLegacyAdminCache = ! str_contains($cachedRoutes, 'packages/{package}/save');
+
+    if ($isLegacyAdminCache || (@filemtime($routeCache) ?: 0) < $webRoutesModifiedAt) {
+        @unlink($routeCache);
+    }
+}
+
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
