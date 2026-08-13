@@ -14,7 +14,10 @@ class Destination extends DomainModel
 
     protected function casts(): array
     {
-        return ['latitude' => 'decimal:7', 'longitude' => 'decimal:7', 'is_featured' => 'boolean', 'is_active' => 'boolean'];
+        // Float casts remain compatible with legacy imports that used an empty
+        // string for missing coordinates. Decimal casts throw before an old row
+        // can be repaired during an otherwise valid update.
+        return ['latitude' => 'float', 'longitude' => 'float', 'is_featured' => 'boolean', 'is_active' => 'boolean'];
     }
 
     public function region(): BelongsTo

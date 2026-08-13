@@ -33,7 +33,8 @@
             <div>
                 @foreach(['facebook_url' => 'Facebook', 'instagram_url' => 'Instagram', 'youtube_url' => 'YouTube', 'linkedin_url' => 'LinkedIn'] as $field => $label)@if($settings?->{$field})<a
                     class="ms-3" target="_blank" rel="noopener" href="{{ $settings->{$field} }}">{{ $label }}</a>@endif
-                @endforeach</div>
+                @endforeach
+            </div>
         </div>
     </div>
 </footer>

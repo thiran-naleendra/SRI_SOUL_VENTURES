@@ -1,9 +1,57 @@
 @extends('layouts.public', ['title' => $destination->meta_title ?: $destination->name, 'metaDescription' => $destination->meta_description ?: $destination->short_description, 'ogImage' => $destination->cover_image ? Storage::disk('public')->url($destination->cover_image) : null, 'ogType' => 'article'])
 
+@push('styles')
+    <style>
+        .destination-show-page { overflow-x: clip; }
+        .destination-show-page .destination-carousel .carousel-item img {
+            display: block;
+            width: 100%;
+            height: clamp(320px, 58vw, 720px);
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 991.98px) {
+            .destination-show-page .destination-main-row { --bs-gutter-y: 2.5rem; }
+            .destination-show-page .destination-plan-card { position: static !important; }
+        }
+
+        @media (max-width: 767.98px) {
+            .destination-show-page .destination-breadcrumb-wrap { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+            .destination-show-page .breadcrumb { flex-wrap: nowrap; margin-bottom: 0; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+            .destination-show-page .breadcrumb::-webkit-scrollbar { display: none; }
+            .destination-show-page .destination-carousel { border-radius: .85rem; }
+            .destination-show-page .destination-carousel .carousel-item img { height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+            .destination-show-page .destination-carousel .carousel-control-prev,
+            .destination-show-page .destination-carousel .carousel-control-next { width: 15%; }
+            .destination-show-page .destination-overview { padding-top: 2rem !important; }
+            .destination-show-page .destination-main-row { --bs-gutter-x: 1.25rem; --bs-gutter-y: 2rem; }
+            .destination-show-page h1.display-4 { font-size: clamp(2.25rem, 11vw, 3.25rem); line-height: 1.08; overflow-wrap: anywhere; }
+            .destination-show-page .lead { font-size: 1.05rem; line-height: 1.65; }
+            .destination-show-page .content-prose { font-size: 1rem; line-height: 1.72; }
+            .destination-show-page .destination-detail-section { padding-top: 2rem; margin-top: 2rem; }
+            .destination-show-page .destination-detail-section > h2 { margin-bottom: 1.1rem; font-size: 1.75rem; }
+            .destination-show-page .destination-content-card img { height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+            .destination-show-page .destination-content-card .p-4 { padding: 1.25rem !important; }
+            .destination-show-page .activity-card { padding: 1rem; }
+            .destination-show-page .destination-plan-card { padding: 1.35rem; border-radius: 1rem; }
+            .destination-show-page .ratio iframe { min-height: 260px; }
+            .destination-show-page .section-space { padding-top: 3rem; padding-bottom: 3rem; }
+            .destination-show-page .cta-banner { border-radius: 1rem; }
+        }
+
+        @media (max-width: 399.98px) {
+            .destination-show-page .destination-carousel .carousel-item img { aspect-ratio: 4 / 3; }
+            .destination-show-page h1.display-4 { font-size: 2.15rem; }
+            .destination-show-page .destination-plan-card { padding: 1.1rem; }
+        }
+    </style>
+@endpush
+
 @section('content')
     @php
         $customCta = $sections->get('custom_journey_cta');
-        $destinationImages = collect([$destination->cover_image])->merge($destination->images->pluck('image_path'))->filter()->map(fn ($path) => Storage::disk('public')->url($path))->values()->all();
+        $destinationImages = collect([$destination->cover_image])->merge($destination->images->pluck('image_path'))->filter()->map(fn($path) => Storage::disk('public')->url($path))->values()->all();
         $carouselImages = collect();
         if ($destination->cover_image) {
             $carouselImages->push([
@@ -32,19 +80,23 @@
             'image' => $destinationImages ?: null,
             'touristType' => $destination->region?->name,
             'geo' => $destination->latitude !== null && $destination->longitude !== null ? ['@type' => 'GeoCoordinates', 'latitude' => $destination->latitude, 'longitude' => $destination->longitude] : null,
-        ], fn ($value) => $value !== null && $value !== '');
+        ], fn($value) => $value !== null && $value !== '');
     @endphp
     <x-public.structured-data :data="$destinationSchema" />
-    <div class="container py-4"><x-public.breadcrumb :items="['Home' => route('home'), 'Destinations' => route('destinations.index'), $destination->name => '']" /></div>
+    <div class="destination-show-page">
+    <div class="container py-4 destination-breadcrumb-wrap"><x-public.breadcrumb :items="['Home' => route('home'), 'Destinations' => route('destinations.index'), $destination->name => '']" /></div>
 
     @if ($carouselImages->isNotEmpty())
         <section class="container" aria-labelledby="destination-gallery-heading">
             <h2 class="visually-hidden" id="destination-gallery-heading">{{ $destination->name }} gallery</h2>
-            <div id="destinationGallery" class="carousel slide destination-carousel" data-bs-ride="carousel" data-bs-interval="5000" data-bs-touch="true">
+            <div id="destinationGallery" class="carousel slide destination-carousel" data-bs-ride="carousel"
+                data-bs-interval="5000" data-bs-touch="true">
                 @if ($carouselImages->count() > 1)
                     <div class="carousel-indicators">
                         @foreach ($carouselImages as $image)
-                            <button type="button" data-bs-target="#destinationGallery" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}" aria-label="Show image {{ $loop->iteration }}"></button>
+                            <button type="button" data-bs-target="#destinationGallery" data-bs-slide-to="{{ $loop->index }}"
+                                class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}"
+                                aria-label="Show image {{ $loop->iteration }}"></button>
                         @endforeach
                     </div>
                 @endif
@@ -59,39 +111,131 @@
                     @endforeach
                 </div>
                 @if ($carouselImages->count() > 1)
-                    <button class="carousel-control-prev" type="button" data-bs-target="#destinationGallery" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous image</span></button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#destinationGallery" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next image</span></button>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#destinationGallery"
+                        data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span
+                            class="visually-hidden">Previous image</span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#destinationGallery"
+                        data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span
+                            class="visually-hidden">Next image</span></button>
                 @endif
             </div>
         </section>
     @endif
 
-    <section class="section-space pt-5">
-        <div class="container"><div class="row g-5"><div class="col-lg-8">
-            <p class="section-kicker mb-2">{{ $destination->region->name }}</p><h1 class="display-4">{{ $destination->name }}</h1>@if($destination->short_description)<p class="lead">{{ $destination->short_description }}</p>@endif
-            <section class="destination-detail-section"><h2>Overview</h2>@if($destination->full_description)<div class="content-prose">{!! nl2br(e($destination->full_description)) !!}</div>@endif</section>
+    <section class="section-space pt-5 destination-overview">
+        <div class="container">
+            <div class="row g-5 destination-main-row">
+                <div class="col-lg-8">
+                    <p class="section-kicker mb-2">{{ $destination->region?->name ?: 'Sri Lanka' }}</p>
+                    <h1 class="display-4">{{ $destination->name }}</h1>@if($destination->short_description)
+                    <p class="lead">{{ $destination->short_description }}</p>@endif
+                    <section class="destination-detail-section">
+                        <h2>Overview</h2>@if($destination->full_description)
+                        <div class="content-prose">{!! nl2br(e($destination->full_description)) !!}</div>@endif
+                    </section>
 
-            @if ($destination->attractions->isNotEmpty())
-                <section class="destination-detail-section"><h2>Top attractions</h2><div class="row g-4">@foreach($destination->attractions as $attraction)<div class="col-md-6"><article class="destination-content-card h-100">@if($attraction->image_path)<img src="{{ Storage::disk('public')->url($attraction->image_path) }}" alt="{{ $attraction->title }}" loading="lazy">@endif<div class="p-4"><h3 class="h4">{{ $attraction->title }}</h3>@if($attraction->description)<p class="mb-0">{{ $attraction->description }}</p>@endif</div></article></div>@endforeach</div></section>
-            @endif
+                    @if ($destination->attractions->isNotEmpty())
+                        <section class="destination-detail-section">
+                            <h2>Top attractions</h2>
+                            <div class="row g-4">@foreach($destination->attractions as $attraction)
+                                <div class="col-md-6">
+                                    <article class="destination-content-card h-100">@if($attraction->image_path)<img
+                                        src="{{ Storage::disk('public')->url($attraction->image_path) }}"
+                                    alt="{{ $attraction->title }}" loading="lazy">@endif<div class="p-4">
+                                            <h3 class="h4">{{ $attraction->title }}</h3>@if($attraction->description)
+                                            <p class="mb-0">{{ $attraction->description }}</p>@endif
+                                        </div>
+                                    </article>
+                            </div>@endforeach
+                            </div>
+                        </section>
+                    @endif
 
-            @if ($destination->activities->isNotEmpty())
-                <section class="destination-detail-section"><h2>Things to do</h2><div class="row g-3">@foreach($destination->activities as $activity)<div class="col-md-6"><article class="activity-card h-100"><span aria-hidden="true">{{ $activity->icon ?: '✦' }}</span><div><h3 class="h5">{{ $activity->title }}</h3>@if($activity->description)<p class="mb-0">{{ $activity->description }}</p>@endif</div></article></div>@endforeach</div></section>
-            @endif
+                    @if ($destination->activities->isNotEmpty())
+                        <section class="destination-detail-section">
+                            <h2>Things to do</h2>
+                            <div class="row g-3">@foreach($destination->activities as $activity)
+                                <div class="col-md-6">
+                                    <article class="activity-card h-100"><span
+                                            aria-hidden="true">{{ $activity->icon ?: '✦' }}</span>
+                                        <div>
+                                            <h3 class="h5">{{ $activity->title }}</h3>@if($activity->description)
+                                            <p class="mb-0">{{ $activity->description }}</p>@endif
+                                        </div>
+                                    </article>
+                            </div>@endforeach
+                            </div>
+                        </section>
+                    @endif
 
-            @if ($destination->travelTips->isNotEmpty())
-                <section class="destination-detail-section"><h2>Travel tips</h2><div class="accordion destination-tips" id="destinationTips">@foreach($destination->travelTips as $tip)<div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#tip{{ $tip->id }}" aria-expanded="{{ $loop->first ? 'true' : 'false' }}">{{ $tip->title }}</button></h3><div id="tip{{ $tip->id }}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}" data-bs-parent="#destinationTips"><div class="accordion-body">{{ $tip->description }}</div></div></div>@endforeach</div></section>
-            @endif
+                    @if ($destination->travelTips->isNotEmpty())
+                        <section class="destination-detail-section">
+                            <h2>Travel tips</h2>
+                            <div class="accordion destination-tips" id="destinationTips">
+                                @foreach($destination->travelTips as $tip)
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header"><button
+                                                class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#tip{{ $tip->id }}"
+                                                aria-expanded="{{ $loop->first ? 'true' : 'false' }}">{{ $tip->title }}</button>
+                                        </h3>
+                                        <div id="tip{{ $tip->id }}"
+                                            class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                                            data-bs-parent="#destinationTips">
+                                            <div class="accordion-body">{{ $tip->description }}</div>
+                                        </div>
+                                </div>@endforeach
+                            </div>
+                        </section>
+                    @endif
 
-            @if ($destination->latitude !== null && $destination->longitude !== null)
-                <section class="destination-detail-section"><h2>Map</h2><div class="ratio ratio-16x9 rounded-4 overflow-hidden"><iframe title="Map showing {{ $destination->name }}" src="https://www.google.com/maps?q={{ $destination->latitude }},{{ $destination->longitude }}&amp;z=12&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></section>
-            @endif
-        </div><aside class="col-lg-4"><div class="destination-plan-card sticky-lg-top"><p class="section-kicker">Plan your visit</p><h2 class="h3">{{ $destination->name }}</h2><dl><dt>Region</dt><dd>{{ $destination->region->name }}</dd>@if($destination->best_time_to_visit)<dt>Best time to visit</dt><dd>{{ $destination->best_time_to_visit }}</dd>@endif</dl><a class="btn btn-forest w-100" href="{{ route('custom-tours') }}">Plan a custom tour</a></div></aside></div></div>
+                    @if ($destination->latitude !== null && $destination->longitude !== null)
+                        <section class="destination-detail-section">
+                            <h2>Map</h2>
+                            <div class="ratio ratio-16x9 rounded-4 overflow-hidden"><iframe
+                                    title="Map showing {{ $destination->name }}"
+                                    src="https://www.google.com/maps?q={{ $destination->latitude }},{{ $destination->longitude }}&amp;z=12&amp;output=embed"
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+                        </section>
+                    @endif
+                </div>
+                <aside class="col-lg-4">
+                    <div class="destination-plan-card sticky-lg-top">
+                        <p class="section-kicker">Plan your visit</p>
+                        <h2 class="h3">{{ $destination->name }}</h2>
+                        <dl>
+                            <dt>Region</dt>
+                            <dd>{{ $destination->region?->name ?: 'Sri Lanka' }}</dd>@if($destination->best_time_to_visit)
+                                <dt>Best time to visit</dt>
+                            <dd>{{ $destination->best_time_to_visit }}</dd>@endif
+                        </dl><a class="btn btn-forest w-100" href="{{ route('custom-tours') }}">Plan a custom tour</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
     </section>
 
-    <section class="section-space section-cream"><div class="container"><x-public.section-heading title="Experiences in {{ $destination->name }}" />@if($relatedExperiences->isNotEmpty())<div class="row g-4">@foreach($relatedExperiences as $experience)<div class="col-md-6 col-lg-4"><x-public.experience-card :experience="$experience" lazy /></div>@endforeach</div>@else<x-public.empty-state title="Experiences for this destination are coming soon" />@endif</div></section>
+    <section class="section-space section-cream">
+        <div class="container"><x-public.section-heading
+                title="Experiences in {{ $destination->name }}" />@if($relatedExperiences->isNotEmpty())
+                    <div class="row g-4">@foreach($relatedExperiences as $experience)
+                    <div class="col-md-6 col-lg-4"><x-public.experience-card :experience="$experience" lazy /></div>@endforeach
+                </div>@else<x-public.empty-state title="Experiences for this destination are coming soon" />@endif
+        </div>
+    </section>
 
-    <section class="section-space"><div class="container"><x-public.section-heading title="Packages visiting {{ $destination->name }}" />@if($relatedPackages->isNotEmpty())<div class="row g-4">@foreach($relatedPackages as $package)<div class="col-md-6 col-lg-4"><x-public.package-card :package="$package" lazy /></div>@endforeach</div>@else<x-public.empty-state title="Packages for this destination are coming soon" />@endif</div></section>
+    <section class="section-space">
+        <div class="container"><x-public.section-heading
+                title="Packages visiting {{ $destination->name }}" />@if($relatedPackages->isNotEmpty())
+                    <div class="row g-4">@foreach($relatedPackages as $package)
+                    <div class="col-md-6 col-lg-4"><x-public.package-card :package="$package" lazy /></div>@endforeach
+                </div>@else<x-public.empty-state title="Packages for this destination are coming soon" />@endif
+        </div>
+    </section>
 
-    <section class="pb-5"><div class="container"><x-public.cta-banner :title="$customCta?->heading ?: 'Let this destination inspire your journey'" :text="$customCta?->content" :button-text="$customCta?->button_text ?: 'Plan a custom tour'" :button-url="$customCta?->button_url ?: route('custom-tours')" /></div></section>
+    <section class="pb-5">
+        <div class="container"><x-public.cta-banner :title="$customCta?->heading ?: 'Let this destination inspire your journey'" :text="$customCta?->content" :button-text="$customCta?->button_text ?: 'Plan a custom tour'"
+                :button-url="$customCta?->button_url ?: route('custom-tours')" /></div>
+    </section>
+    </div>
 @endsection

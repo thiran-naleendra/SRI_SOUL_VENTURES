@@ -69,7 +69,7 @@ class DestinationCrudTest extends TestCase
             'cover_image' => UploadedFile::fake()->image('new-cover.jpg'),
             'gallery' => [['id' => $gallery->id, '_remove' => 1, 'display_order' => 0]],
             'attractions' => [['id' => $attraction->id, 'title' => 'New title', 'image' => UploadedFile::fake()->image('new-attraction.jpg'), 'display_order' => 0]],
-        ]))->assertRedirect(route('admin.destinations.index'));
+        ]))->assertRedirect(route('admin.destinations.edit', $destination));
 
         $destination->refresh();
         $attraction->refresh();
@@ -83,22 +83,167 @@ class DestinationCrudTest extends TestCase
         Storage::disk('public')->assertExists($attraction->image_path);
     }
 
-    public function test_hosting_compatible_save_route_updates_a_destination(): void
+    public function test_hosting_compatible_store_endpoint_updates_a_destination_and_adds_a_tip(): void
     {
         $destination = Destination::factory()->create();
 
         $this->actingAs($this->superAdmin())
-            ->post(route('admin.destinations.save', $destination), $this->payload($destination->region, [
+            ->post(route('admin.destinations.store'), $this->payload($destination->region, [
+                'editing_destination_id' => $destination->id,
                 'name' => 'Updated Through Save Route',
                 'slug' => '',
+                'travel_tips' => [
+                    [
+                        'title' => 'Carry sun protection',
+                        'description' => 'The afternoons can be bright.',
+                        'display_order' => 2,
+                    ],
+                ],
             ]))
-            ->assertRedirect(route('admin.destinations.index'))
+            ->assertRedirect(route('admin.destinations.edit', $destination))
             ->assertSessionHas('success');
 
         $this->assertDatabaseHas('destinations', [
             'id' => $destination->id,
             'name' => 'Updated Through Save Route',
             'slug' => 'updated-through-save-route',
+        ]);
+        $this->assertDatabaseHas('destination_travel_tips', [
+            'destination_id' => $destination->id,
+            'title' => 'Carry sun protection',
+            'display_order' => 2,
+        ]);
+    }
+
+    public function test_small_tip_only_request_adds_tip_without_changing_destination_fields(): void
+    {
+        $destination = Destination::factory()->create(['name' => 'Original Destination']);
+
+        $this->actingAs($this->superAdmin())
+            ->postJson(route('admin.destinations.store'), [
+                '_tip_only' => true,
+                'editing_destination_id' => $destination->id,
+                'tip_title' => 'Respect local customs',
+                'tip_description' => 'Dress appropriately at temples.',
+                'tip_display_order' => 4,
+            ])
+            ->assertOk()
+            ->assertJsonPath('message', 'Travel tip saved successfully.');
+
+        $this->assertSame('Original Destination', $destination->fresh()->name);
+        $this->assertDatabaseHas('destination_travel_tips', [
+            'destination_id' => $destination->id,
+            'title' => 'Respect local customs',
+            'display_order' => 4,
+        ]);
+    }
+
+    public function test_destination_sections_can_be_saved_independently(): void
+    {
+        $destination = Destination::factory()->create([
+            'name' => 'Keep This Name',
+            'best_time_to_visit' => 'Old season',
+            'latitude' => 6.1234567,
+            'longitude' => 80.1234567,
+        ]);
+        $this->actingAs($this->superAdmin());
+
+        $this->postJson(route('admin.destinations.section', $destination), [
+            'section' => 'map',
+            'best_time_to_visit' => '',
+            'latitude' => '',
+            'longitude' => '',
+        ])->assertOk()->assertJsonPath('message', 'Section saved successfully.');
+
+        $destination->refresh();
+        $this->assertSame('Keep This Name', $destination->name);
+        $this->assertNull($destination->best_time_to_visit);
+        $this->assertNull($destination->latitude);
+        $this->assertNull($destination->longitude);
+
+        $this->postJson(route('admin.destinations.section', $destination), [
+            'section' => 'travel_tips',
+            'travel_tips' => [[
+                'title' => 'Independent tip',
+                'description' => '',
+                'display_order' => 3,
+            ]],
+        ])->assertOk();
+
+        $this->assertDatabaseHas('destination_travel_tips', [
+            'destination_id' => $destination->id,
+            'title' => 'Independent tip',
+            'description' => null,
+            'display_order' => 3,
+        ]);
+    }
+
+    public function test_compact_payload_updates_legacy_destination_and_allows_child_data(): void
+    {
+        $destination = Destination::factory()->create(['name' => 'Legacy Destination']);
+        $payload = $this->payload($destination->region, [
+            'name' => 'Repaired Legacy Destination',
+            'slug' => '',
+            'best_time_to_visit' => '',
+            'latitude' => '',
+            'longitude' => '',
+            'meta_description' => '',
+            'travel_tips' => [
+                [
+                    'title' => 'Legacy record tip',
+                    'description' => 'Saved from one compact payload.',
+                    'display_order' => 7,
+                ],
+            ],
+        ]);
+
+        $this->actingAs($this->superAdmin())
+            ->post(route('admin.destinations.store'), [
+                'editing_destination_id' => $destination->id,
+                '_destination_payload' => json_encode($payload, JSON_THROW_ON_ERROR),
+            ])
+            ->assertRedirect(route('admin.destinations.edit', $destination))
+            ->assertSessionHas('success');
+
+        $this->assertDatabaseHas('destinations', [
+            'id' => $destination->id,
+            'name' => 'Repaired Legacy Destination',
+            'best_time_to_visit' => null,
+            'latitude' => null,
+            'longitude' => null,
+            'meta_description' => null,
+        ]);
+        $this->assertDatabaseHas('destination_travel_tips', [
+            'destination_id' => $destination->id,
+            'title' => 'Legacy record tip',
+            'display_order' => 7,
+        ]);
+    }
+
+    public function test_update_repairs_empty_decimal_values_from_legacy_database_rows(): void
+    {
+        $destination = Destination::factory()->create(['name' => 'Legacy Coordinates']);
+
+        Destination::query()->whereKey($destination->id)->toBase()->update([
+            'latitude' => '',
+            'longitude' => '',
+        ]);
+
+        $this->actingAs($this->superAdmin())
+            ->post(route('admin.destinations.store'), $this->payload($destination->region, [
+                'editing_destination_id' => $destination->id,
+                'name' => 'Repaired Coordinates',
+                'latitude' => null,
+                'longitude' => null,
+            ]))
+            ->assertRedirect(route('admin.destinations.edit', $destination))
+            ->assertSessionHas('success');
+
+        $this->assertDatabaseHas('destinations', [
+            'id' => $destination->id,
+            'name' => 'Repaired Coordinates',
+            'latitude' => null,
+            'longitude' => null,
         ]);
     }
 
@@ -125,6 +270,18 @@ class DestinationCrudTest extends TestCase
         $this->get(route('admin.destinations.index', ['search' => 'Needle', 'region' => $north->id, 'featured' => 'yes', 'status' => 'inactive']))
             ->assertOk()->assertSee('Needle Bay');
         $this->get(route('admin.destinations.index', ['region' => $south->id]))->assertOk()->assertDontSee('Needle Bay');
+    }
+
+    public function test_index_handles_legacy_destination_with_deleted_region(): void
+    {
+        $destination = Destination::factory()->create(['name' => 'Legacy Coast']);
+        $destination->region->delete();
+
+        $this->actingAs($this->superAdmin())
+            ->get(route('admin.destinations.index'))
+            ->assertOk()
+            ->assertSee('Legacy Coast')
+            ->assertSee('Unassigned region');
     }
 
     public function test_destination_can_be_soft_deleted_and_restored_without_deleting_files(): void

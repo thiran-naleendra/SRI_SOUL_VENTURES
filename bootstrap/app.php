@@ -16,7 +16,12 @@ $webRoutesModifiedAt = @filemtime($webRoutes) ?: 0;
 // retained because its modification time will be newer than routes/web.php.
 foreach (glob(__DIR__.'/cache/routes-*.php') ?: [] as $routeCache) {
     $cachedRoutes = @file_get_contents($routeCache) ?: '';
-    $isLegacyAdminCache = ! str_contains($cachedRoutes, 'packages/{package}/save');
+    $requiredAdminRoutes = [
+        'packages/{package}/save',
+        'destinations/{destination}/save',
+    ];
+    $isLegacyAdminCache = collect($requiredAdminRoutes)
+        ->contains(fn (string $route) => ! str_contains($cachedRoutes, $route));
 
     if ($isLegacyAdminCache || (@filemtime($routeCache) ?: 0) < $webRoutesModifiedAt) {
         @unlink($routeCache);

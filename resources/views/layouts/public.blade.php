@@ -43,6 +43,7 @@
     <x-public.structured-data :data="$organization" />
     @stack('structured-data')
     @vite(['resources/css/public.css', 'resources/js/public.js'])
+    @stack('styles')
 </head>
 <body class="public-site">
     <x-public.header :settings="$websiteSettings" />

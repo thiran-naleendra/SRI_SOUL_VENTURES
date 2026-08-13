@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreDestinationRequest;
 use App\Http\Requests\Admin\UpdateDestinationRequest;
+use App\Http\Requests\Admin\UpdateDestinationSectionRequest;
 use App\Models\Destination;
 use App\Models\DestinationRegion;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -58,8 +60,35 @@ class DestinationController extends Controller
         return view('admin.destinations.create', ['regions' => $this->regions()]);
     }
 
-    public function store(StoreDestinationRequest $request): RedirectResponse
+    public function store(StoreDestinationRequest $request): RedirectResponse|JsonResponse
     {
+        if ($request->boolean('_tip_only')) {
+            $destination = Destination::query()->findOrFail($request->integer('editing_destination_id'));
+            Gate::authorize('update', $destination);
+            $tip = $request->validated('tip_id')
+                ? $destination->travelTips()->findOrFail($request->integer('tip_id'))
+                : $destination->travelTips()->make();
+
+            $tip->fill([
+                'title' => $request->validated('tip_title'),
+                'description' => $request->validated('tip_description'),
+                'display_order' => $request->validated('tip_display_order') ?? 0,
+            ]);
+            $tip->save();
+
+            if ($request->expectsJson()) {
+                return response()->json(['message' => 'Travel tip saved successfully.', 'tip_id' => $tip->id]);
+            }
+
+            return back()->with('success', 'Travel tip saved successfully.');
+        }
+
+        if ($request->validated('editing_destination_id')) {
+            $destination = Destination::query()->findOrFail($request->integer('editing_destination_id'));
+
+            return $this->updateExisting($request, $destination);
+        }
+
         $newFiles = [];
 
         try {
@@ -93,11 +122,81 @@ class DestinationController extends Controller
     public function update(UpdateDestinationRequest $request, int $destination): RedirectResponse
     {
         $destination = Destination::query()->findOrFail($destination);
+
+        return $this->updateExisting($request, $destination);
+    }
+
+    public function updateSection(UpdateDestinationSectionRequest $request, int $destination): JsonResponse
+    {
+        $destination = Destination::query()->findOrFail($destination);
+        Gate::authorize('update', $destination);
+        $validated = $request->validated();
+        $section = $validated['section'];
+        $newFiles = [];
+        $oldFiles = [];
+
+        try {
+            DB::transaction(function () use ($request, $destination, $validated, $section, &$newFiles, &$oldFiles): void {
+                $this->normalizeLegacyCoordinates($destination);
+
+                if ($section === 'basic') {
+                    $data = $this->nullableStrings(collect($validated)->only([
+                        'destination_region_id', 'name', 'short_description', 'full_description',
+                    ])->all(), ['short_description', 'full_description']);
+                    $data['slug'] = $this->uniqueSlug($validated['slug'] ?: $data['name'], $destination->id);
+                    $destination->update($data);
+                } elseif ($section === 'cover') {
+                    $data = [];
+                    if ($request->hasFile('cover_image')) {
+                        $data['cover_image'] = $this->storeFile($request->file('cover_image'), 'destinations/covers', $newFiles);
+                        if ($destination->cover_image) {
+                            $oldFiles[] = $destination->cover_image;
+                        }
+                    } elseif ($request->boolean('remove_cover_image')) {
+                        $data['cover_image'] = null;
+                        if ($destination->cover_image) {
+                            $oldFiles[] = $destination->cover_image;
+                        }
+                    }
+                    if ($data !== []) {
+                        $destination->update($data);
+                    }
+                } elseif (in_array($section, ['gallery', 'attractions', 'activities', 'travel_tips'], true)) {
+                    $this->syncChildren($destination, [$section => $validated[$section] ?? []], $newFiles, $oldFiles);
+                } elseif ($section === 'map') {
+                    $destination->update($this->nullableStrings(collect($validated)->only([
+                        'best_time_to_visit', 'latitude', 'longitude',
+                    ])->all(), ['best_time_to_visit', 'latitude', 'longitude']));
+                } elseif ($section === 'seo') {
+                    $destination->update($this->nullableStrings(collect($validated)->only([
+                        'meta_title', 'meta_description',
+                    ])->all(), ['meta_title', 'meta_description']));
+                } elseif ($section === 'publishing') {
+                    $destination->update(collect($validated)->only([
+                        'display_order', 'is_featured', 'is_active',
+                    ])->all());
+                }
+            });
+        } catch (Throwable $exception) {
+            Storage::disk('public')->delete($newFiles);
+            throw $exception;
+        }
+
+        Storage::disk('public')->delete(array_values(array_unique(array_filter($oldFiles))));
+
+        return response()->json(['message' => 'Section saved successfully.']);
+    }
+
+    private function updateExisting(StoreDestinationRequest $request, Destination $destination): RedirectResponse
+    {
+        Gate::authorize('update', $destination);
         $newFiles = [];
         $oldFiles = [];
 
         try {
             DB::transaction(function () use ($request, $destination, &$newFiles, &$oldFiles): void {
+                $this->normalizeLegacyCoordinates($destination);
+
                 $data = $this->destinationData($request->validated());
                 $data['slug'] = $this->uniqueSlug($request->validated('slug') ?: $data['name'], $destination->id);
 
@@ -123,7 +222,35 @@ class DestinationController extends Controller
 
         Storage::disk('public')->delete(array_values(array_unique(array_filter($oldFiles))));
 
-        return to_route('admin.destinations.index')->with('success', 'Destination updated successfully.');
+        return to_route('admin.destinations.edit', $destination)->with('success', 'Destination updated successfully.');
+    }
+
+    /**
+     * Older imports stored empty strings in nullable decimal columns. Laravel's
+     * decimal cast cannot compare those values while saving, so repair the row
+     * before Eloquent performs dirty-attribute detection.
+     */
+    private function normalizeLegacyCoordinates(Destination $destination): void
+    {
+        $attributes = $destination->getAttributes();
+        $repairs = [];
+
+        foreach (['latitude', 'longitude'] as $attribute) {
+            if (($attributes[$attribute] ?? null) === '') {
+                $attributes[$attribute] = null;
+                $repairs[$attribute] = null;
+            }
+        }
+
+        if ($repairs === []) {
+            return;
+        }
+
+        DB::table($destination->getTable())
+            ->where($destination->getKeyName(), $destination->getKey())
+            ->update($repairs);
+
+        $destination->setRawAttributes($attributes, true);
     }
 
     public function destroy(int $destination): RedirectResponse
@@ -155,11 +282,49 @@ class DestinationController extends Controller
 
     private function destinationData(array $validated): array
     {
-        return collect($validated)->only([
-            'destination_region_id', 'name', 'short_description', 'full_description',
-            'best_time_to_visit', 'latitude', 'longitude', 'is_featured', 'is_active',
-            'display_order', 'meta_title', 'meta_description',
+        $data = collect($validated)->only([
+            'destination_region_id',
+            'name',
+            'short_description',
+            'full_description',
+            'best_time_to_visit',
+            'latitude',
+            'longitude',
+            'is_featured',
+            'is_active',
+            'display_order',
+            'meta_title',
+            'meta_description',
         ])->all();
+
+        foreach ([
+            'short_description',
+            'full_description',
+            'best_time_to_visit',
+            'latitude',
+            'longitude',
+            'meta_title',
+            'meta_description',
+        ] as $nullableField) {
+            if (array_key_exists($nullableField, $data)
+                && is_string($data[$nullableField])
+                && trim($data[$nullableField]) === '') {
+                $data[$nullableField] = null;
+            }
+        }
+
+        return $data;
+    }
+
+    private function nullableStrings(array $data, array $fields): array
+    {
+        foreach ($fields as $field) {
+            if (array_key_exists($field, $data) && is_string($data[$field]) && trim($data[$field]) === '') {
+                $data[$field] = null;
+            }
+        }
+
+        return $data;
     }
 
     private function syncChildren(Destination $destination, array $validated, array &$newFiles, array &$oldFiles = []): void

@@ -101,6 +101,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('destinations/create', [DestinationController::class, 'create'])->middleware('permission:destinations.create')->name('destinations.create');
     Route::post('destinations', [DestinationController::class, 'store'])->middleware('permission:destinations.create')->name('destinations.store');
     Route::get('destinations/{destination}/edit', [DestinationController::class, 'edit'])->middleware('permission:destinations.update')->name('destinations.edit');
+    Route::post('destinations/{destination}/section', [DestinationController::class, 'updateSection'])->middleware('permission:destinations.update')->name('destinations.section');
     Route::post('destinations/{destination}/save', [DestinationController::class, 'update'])->middleware('permission:destinations.update')->name('destinations.save');
     Route::match(['post', 'put'], 'destinations/{destination}', [DestinationController::class, 'update'])->middleware('permission:destinations.update')->name('destinations.update');
     Route::patch('destinations/{destination}/toggle', [DestinationController::class, 'toggle'])->middleware('permission:destinations.update')->name('destinations.toggle');
