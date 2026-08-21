@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePackageRequest;
 use App\Http\Requests\Admin\UpdatePackageRequest;
+use App\Http\Requests\Admin\UpdatePackageSectionRequest;
 use App\Models\Destination;
 use App\Models\Package;
 use App\Models\PackageCategory;
 use App\Models\TravelStyle;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -112,6 +114,74 @@ class PackageController extends Controller
         return to_route('admin.packages.index')->with('success', 'Package updated successfully.');
     }
 
+    public function updateSection(UpdatePackageSectionRequest $request, int $package): JsonResponse
+    {
+        $package = Package::query()->findOrFail($package);
+        Gate::authorize('update', $package);
+        $validated = $request->validated();
+        $section = $validated['section'];
+        $newFiles = [];
+        $oldFiles = [];
+
+        try {
+            DB::transaction(function () use ($request, $package, $validated, $section, &$newFiles, &$oldFiles): void {
+                if ($section === 'basic') {
+                    $data = $this->nullableStrings($this->packageData($validated), [
+                        'badge_text', 'short_description', 'full_description', 'starting_price', 'discount_price', 'price_note',
+                        'maximum_travelers', 'tour_type', 'physical_level', 'perfect_for',
+                    ]);
+                    $data['slug'] = $this->uniqueSlug($validated['slug'] ?: $data['title'], $package->id);
+                    $package->update($data);
+                } elseif ($section === 'relations') {
+                    $package->destinations()->sync($validated['destination_ids'] ?? []);
+                    $package->travelStyles()->sync($validated['travel_style_ids'] ?? []);
+                } elseif ($section === 'images') {
+                    $data = [];
+                    if ($request->hasFile('cover_image')) {
+                        $data['cover_image'] = $this->storeFile($request->file('cover_image'), 'packages/covers', $newFiles);
+                        $oldFiles[] = $package->cover_image;
+                    } elseif ($request->boolean('remove_cover_image')) {
+                        $data['cover_image'] = null;
+                        $oldFiles[] = $package->cover_image;
+                    }
+                    if ($data !== []) {
+                        $package->update($data);
+                    }
+                    $this->syncChildren($package, ['gallery' => $validated['gallery'] ?? []], $newFiles, $oldFiles);
+                } elseif (in_array($section, ['itinerary', 'highlights', 'faqs', 'reviews'], true)) {
+                    $input = $section === 'itinerary' ? 'itineraries' : $section;
+                    $this->syncChildren($package, [$input => $validated[$input] ?? []], $newFiles, $oldFiles);
+                } elseif ($section === 'items') {
+                    $this->syncChildren($package, [
+                        'inclusions' => $validated['inclusions'] ?? [],
+                        'exclusions' => $validated['exclusions'] ?? [],
+                    ], $newFiles, $oldFiles);
+                } elseif ($section === 'policies') {
+                    $data = $this->nullableStrings(collect($validated)->only([
+                        'accommodation_summary', 'transportation_summary', 'cancellation_policy', 'support_text', 'terms_and_conditions',
+                    ])->all(), ['accommodation_summary', 'transportation_summary', 'cancellation_policy', 'support_text', 'terms_and_conditions']);
+                    if ($request->hasFile('itinerary_pdf')) {
+                        $data['itinerary_pdf'] = $this->storeFile($request->file('itinerary_pdf'), 'packages/pdfs', $newFiles);
+                        $oldFiles[] = $package->itinerary_pdf;
+                    } elseif ($request->boolean('remove_itinerary_pdf')) {
+                        $data['itinerary_pdf'] = null;
+                        $oldFiles[] = $package->itinerary_pdf;
+                    }
+                    $package->update($data);
+                } elseif ($section === 'seo') {
+                    $package->update($this->nullableStrings(collect($validated)->only(['meta_title', 'meta_description'])->all(), ['meta_title', 'meta_description']));
+                }
+            });
+        } catch (Throwable $exception) {
+            Storage::disk('public')->delete($newFiles);
+            throw $exception;
+        }
+
+        Storage::disk('public')->delete(array_values(array_unique(array_filter($oldFiles))));
+
+        return response()->json(['message' => 'Package section saved successfully.']);
+    }
+
     public function destroy(int $package): RedirectResponse
     {
         $package = Package::findOrFail($package);
@@ -142,6 +212,17 @@ class PackageController extends Controller
     private function packageData(array $v): array
     {
         return collect($v)->only(['package_category_id', 'title', 'badge_text', 'short_description', 'full_description', 'days', 'nights', 'starting_price', 'discount_price', 'currency', 'price_note', 'minimum_travelers', 'maximum_travelers', 'tour_type', 'physical_level', 'perfect_for', 'accommodation_summary', 'transportation_summary', 'cancellation_policy', 'support_text', 'terms_and_conditions', 'is_featured', 'is_popular', 'is_customizable', 'is_active', 'display_order', 'meta_title', 'meta_description'])->all();
+    }
+
+    private function nullableStrings(array $data, array $fields): array
+    {
+        foreach ($fields as $field) {
+            if (array_key_exists($field, $data) && ($data[$field] === '' || $data[$field] === null)) {
+                $data[$field] = null;
+            }
+        }
+
+        return $data;
     }
 
     private function setPrimaryFiles(StorePackageRequest $request, array &$data, array &$new, array &$old = [], ?Package $package = null): void

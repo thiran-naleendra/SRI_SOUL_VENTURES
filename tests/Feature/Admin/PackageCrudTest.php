@@ -40,6 +40,63 @@ class PackageCrudTest extends TestCase
             ->assertDontSee('name="_method" value="PUT"', false);
     }
 
+    public function test_edit_form_has_independent_section_save_endpoint(): void
+    {
+        $package = Package::factory()->create();
+
+        $this->actingAs($this->superAdmin())
+            ->get(route('admin.packages.edit', $package))
+            ->assertOk()
+            ->assertSee('data-package-section-url="'.route('admin.packages.section', $package).'"', false)
+            ->assertSee('data-package-section="basic"', false)
+            ->assertSee('Save this section');
+    }
+
+    public function test_basic_section_updates_only_basic_data_and_saves_blank_values_as_null(): void
+    {
+        [$category] = $this->relations();
+        $package = Package::factory()->create([
+            'package_category_id' => $category->id,
+            'accommodation_summary' => 'Must remain unchanged',
+            'discount_price' => 50,
+        ]);
+
+        $payload = $this->payload($category, [
+            'section' => 'basic',
+            'title' => 'Section Updated Tour',
+            'discount_price' => '',
+        ]);
+
+        $this->actingAs($this->superAdmin())
+            ->postJson(route('admin.packages.section', $package), $payload)
+            ->assertOk()
+            ->assertJsonPath('message', 'Package section saved successfully.');
+
+        $package->refresh();
+        $this->assertSame('Section Updated Tour', $package->title);
+        $this->assertNull($package->discount_price);
+        $this->assertSame('Must remain unchanged', $package->accommodation_summary);
+    }
+
+    public function test_items_section_removes_and_reorders_without_updating_package_fields(): void
+    {
+        $package = Package::factory()->create(['title' => 'Keep this title']);
+        $removed = PackageInclusion::create(['package_id' => $package->id, 'item' => 'Remove me', 'display_order' => 1]);
+        $kept = PackageInclusion::create(['package_id' => $package->id, 'item' => 'Keep me', 'display_order' => 2]);
+
+        $this->actingAs($this->superAdmin())->postJson(route('admin.packages.section', $package), [
+            'section' => 'items',
+            'inclusions' => [
+                ['id' => $removed->id, 'item' => $removed->item, 'display_order' => 1, '_remove' => 1],
+                ['id' => $kept->id, 'item' => $kept->item, 'display_order' => 9],
+            ],
+        ])->assertOk();
+
+        $this->assertDatabaseMissing('package_inclusions', ['id' => $removed->id]);
+        $this->assertDatabaseHas('package_inclusions', ['id' => $kept->id, 'display_order' => 9]);
+        $this->assertSame('Keep this title', $package->fresh()->title);
+    }
+
     public function test_legacy_package_post_url_is_accepted(): void
     {
         [$category] = $this->relations();

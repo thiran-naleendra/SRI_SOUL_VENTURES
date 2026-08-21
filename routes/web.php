@@ -122,6 +122,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::post('packages', [PackageController::class, 'store'])->middleware('permission:packages.create')->name('packages.store');
     Route::get('packages/{package}', [PackageController::class, 'show'])->middleware('permission:packages.update')->name('packages.show');
     Route::get('packages/{package}/edit', [PackageController::class, 'edit'])->middleware('permission:packages.update')->name('packages.edit');
+    Route::post('packages/{package}/section', [PackageController::class, 'updateSection'])->middleware('permission:packages.update')->name('packages.section');
     Route::post('packages/{package}/save', [PackageController::class, 'update'])->middleware('permission:packages.update')->name('packages.save');
     Route::match(['post', 'put'], 'packages/{package}', [PackageController::class, 'update'])->middleware('permission:packages.update')->name('packages.update');
     Route::patch('packages/{package}/toggle', [PackageController::class, 'toggle'])->middleware('permission:packages.update')->name('packages.toggle');
